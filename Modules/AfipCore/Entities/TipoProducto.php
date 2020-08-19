@@ -4,11 +4,13 @@ namespace Modules\AfipCore\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DetallePresupuesto extends Model
+class TipoProducto extends Model
 {
-  protected $table = 'detalle_presupuestos';
+  protected $table = 'tipo_productos';
 
   protected $fillable = [
+		'nombre',
+		'created_by',
   ];
 
   protected $hiden = [

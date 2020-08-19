@@ -1,0 +1,13 @@
+{
+    "name": "AfipCore",
+    "alias": "afipcore",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\AfipCore\\Providers\\AfipCoreServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

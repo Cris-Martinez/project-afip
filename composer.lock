@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f43e93539c94a08f68d29cc502f33aa9",
+    "content-hash": "6c25ca3c8fc777ee583b70600a812351",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1373,21 +1373,21 @@
         },
         {
             "name": "nwidart/laravel-modules",
-            "version": "7.1.0",
+            "version": "7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nWidart/laravel-modules.git",
-                "reference": "245426d4d0c0293a44e4cc8cc44d1c5d50e0d0ba"
+                "reference": "8980876d63096951e067bcaf8649d591d4c7f0da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/245426d4d0c0293a44e4cc8cc44d1c5d50e0d0ba",
-                "reference": "245426d4d0c0293a44e4cc8cc44d1c5d50e0d0ba",
+                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/8980876d63096951e067bcaf8649d591d4c7f0da",
+                "reference": "8980876d63096951e067bcaf8649d591d4c7f0da",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.2.5"
+                "php": ">=7.2.5"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.16",
@@ -1446,7 +1446,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-04-14T17:21:11+00:00"
+            "time": "2020-07-30T17:10:13+00:00"
         },
         {
             "name": "opis/closure",

@@ -1,0 +1,101 @@
+Pais paises           
+['nombre:string:40:fillable:unique']
+Provincia provincias           
+['nombre:string:40:fillable:unique
+-pais_id:references:paises']
+Localidad localidades           
+['nombre:string:40:fillable:unique
+-codigo_postal:string:8
+-provincia_id:references:provincias']
+CategoriaIva categoria_ivas           
+['nombre:string:80:fillable:unique
+-discrimina:char:1']
+TipoComprobante tipo_comprobantes   
+['nombre:string:80:fillable:unique
+-signo:integer:fillable
+-nombre_corto:string:10:fillable']
+TipoIva tipo_ivas           
+['nombre:string:80:fillable:unique
+-porcentaje:float:fillable']
+TipoProducto tipo_productos      
+['nombre:string:80:fillable:unique']
+TipoUbicacion tipo_ubicaciones    
+['nombre:string:80:fillable:unique']
+UnidadMedidas unidad_medidas      
+['nombre:string:80:fillable:unique
+-simbolo:string:10:fillable']
+Producto productos           
+['nombre:string:80:fillable:unique
+-vencimiento:date:fillable:nullable
+-costo:float:fillable:nullable
+-precio:float:fillable:nullable
+-bulto:integer:default:1:fillable
+-pieza:integer:default:1:fillable
+-stock_minimo:float:fillable:nullable
+-tipo_producto_id:references:tipo_productos
+-tipo_iva_id:references:tipo_ivas
+-unidad_medida_id:references:unidad_medidas']
+Ubicacion ubicaciones         
+['nombre:string:80:fillable:unique
+-descripcion:string:80:fillable:nullable
+-tipo_ubicacion_id:references:tipo_ubicaciones']
+ProductoUbicacion producto_ubicaciones 
+['nombre:string:80:fillable:unique
+-producto_id:references:productos
+-ubicacion_id:references:ubicaciones']
+Cliente clientes
+['nombre:string:80:unique:fillable
+-cuit:string:11:fillable
+-domicilio:string:80:fillable:nullable
+-telefono:string:20:fillable:nullable
+-celular:string:20:fillable:nullable
+-contacto:string:80:fillable:nullable
+-email:string:80:fillable:nullable
+-localidad_id:references:localidades
+-categoria_iva_id:references:categoria_ivas']
+Venta ventas
+['nombre:string:80:unique:fillable
+-fecha:date:fillable
+-numero:integer:fillable
+-total:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-exento:float:fillable
+-cliente_id:references:clientes
+-tipo_comprobante_id:references:tipo_comprobantes']
+DetalleVenta detalle_ventas
+['nombre:string:80:unique:fillable
+-bulto:integer:fillable
+-pieza:integer:fillable
+-cantidad:float:fillable
+-precio:float:fillable
+-exento:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-porcentaje_iva:float:fillable
+-venta_id:references:ventas
+-producto_id:references:productos
+-ubicacion_id:references:ubicaciones']
+Presupuesto presupuestos
+['nombre:string:80:unique:fillable
+-fecha:date:fillable
+-numero:integer:fillable
+-total:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-exento:float:fillable
+-cliente_id:references:clientes
+-tipo_comprobante_id:references:tipo_comprobantes']
+DetallePresupuesto detalle_presupuestos
+['nombre:string:80:unique:fillable
+-bulto:integer:fillable
+-pieza:integer:fillable
+-cantidad:float:fillable
+-precio:float:fillable
+-exento:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-porcentaje_iva:float:fillable
+-presupuesto_id:references:presupuestos
+-producto_id:references:productos
+-ubicacion_id:references:ubicaciones']
