@@ -1,0 +1,21 @@
+<?php
+
+namespace Modules\InventarioCore\Entities;
+
+use Illuminate\Database\Eloquent\Model;
+
+class DetallePresupuesto extends Model
+{
+  protected $table = 'detalle_presupuestos';
+
+  protected $fillable = [
+  ];
+
+  protected $hiden = [
+    // ...
+    'created_by', 'updated_by', 'created_at', 'updated_at',
+  ];
+
+  public $validationObserverMessage = null;
+
+}

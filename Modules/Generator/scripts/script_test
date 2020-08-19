@@ -1,0 +1,4 @@
+# script_test $2 $1
+cd ../..
+php artisan module:make-test $2 $1
+cd Modules/Generator

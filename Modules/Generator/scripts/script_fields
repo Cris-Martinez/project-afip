@@ -1,0 +1,5 @@
+# script_fields $1 $2 $3 $4
+fields="`echo $4 | awk -f scripts/fields.awk`"
+file=`ls ../$1/Database/Migrations/*create_$3_table.php`
+awk -f scripts/migration.awk -v campos="$fields" $file > create_table.txt
+mv create_table.txt $file

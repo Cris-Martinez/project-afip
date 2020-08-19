@@ -1,0 +1,7 @@
+scripts/script_model $1 $2 $3 $4
+scripts/script_controller $1 $2 $3 $4
+scripts/script_migration $1 $2 $3 $4
+scripts/script_seeder $1 $2 $3 $4
+scripts/script_test $1 $2 $3 $4
+scripts/script_postman $1 $2 $3 $4
+scripts/script_route $1 $2 $3

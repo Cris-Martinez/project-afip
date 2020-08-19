@@ -1,0 +1,6 @@
+    
+    Route::put('entidad/habilitar/{id}', 'EntidadController@habilitar');
+    Route::put('entidad/deshabilitar/{id}', 'EntidadController@deshabilitar');
+    Route::post('entidad/actualizar-imagen/{imagen}/{id}', 'EntidadController@actualizarImagen');
+    Route::put('entidad/aprobar-imagen/{imagen}/{id}', 'EntidadController@aprobarImagen');
+    Route::resource('entidad','EntidadController');

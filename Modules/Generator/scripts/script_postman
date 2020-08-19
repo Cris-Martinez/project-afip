@@ -1,0 +1,11 @@
+# script_postman $1 $2 $3 $4
+modulo=`echo $1 | tr '[:upper:]' '[:lower:]'`
+entidad=`echo $3 | tr '_' '-'`
+file=test/entidad-postman.json
+cat $file |sed s/Entidad/$2/g |sed s/entidad/$entidad/g|sed s/modulo/$modulo/g > postman.txt
+fields=`echo $4| awk -f scripts/postman_fields.awk`
+awk -f scripts/postman_entidad.awk -v campos="$fields" postman.txt > nuevo-postman.txt
+file=../$1/Tests/postman/$modulo-backend.json
+fields=`cat nuevo-postman.txt`
+awk -f scripts/postman_modulo.awk -v campos="$fields" $file > nuevo-postman.txt > postman.txt
+mv postman.txt $file

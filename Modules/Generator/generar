@@ -1,0 +1,18 @@
+echo Procesamiento Iniciado ...
+echo Generando Modulo ...
+cd ../..
+php artisan module:make $1
+modulo=`echo $1 | tr '[:upper:]' '[:lower:]'`
+echo '------------------------------'
+echo Procesando Entidades ...
+cd Modules/Generator
+cat controller/ModuloController.php |sed s/Modulo/$1/g > ../$1/Http/Controllers/$1Controller.php
+mkdir ../$1/Tests/postman 
+file=../$1/Tests/postman/$modulo-backend.json
+cat test/modulo-backend.json |sed s/__Modulo/$1/g |sed s/__modulo/$modulo/g > $file
+rm procesar
+cat Entidades_$1 |tr -d '\n'|tr ']' '\n'|tr '[' ' '|sed s/^/$1\ /g|sed s/^/sh\ script_gen\ /g >> procesar
+echo '------------------------------'
+sh procesar
+sed -i 's/__postman__//g' $file
+echo Procesamiento Finalizado ...

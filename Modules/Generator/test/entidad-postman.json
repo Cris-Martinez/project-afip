@@ -1,0 +1,345 @@
+{
+    "name": "Entidad",
+    "item": [
+        {
+            "name": "GET Entidad",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Insertar Entidad",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                    __post__
+                    ]
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "GET Entidad",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/1",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Entidad",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                    __post__
+                    ]
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/1",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Entidad",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/1",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "PUT Habilitar Entidad",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/habilitar/1",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        "habilitar",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "PUT Deshabilitar Entidad",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/deshabilitar/1",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        "deshabilitar",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Aprobar Imagen",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "type": "text",
+                        "value": "{{token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/aprobar-imagen/imagen/1",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        "aprobar-imagen",
+                        "imagen",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Actualizar Imagen",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "type": "text",
+                        "value": "{{token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "imagen",
+                            "type": "file",
+                            "src": ""
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://{{url}}:{{puerto}}/api/modulo/entidad/actualizar-imagen/imagen/1",
+                    "protocol": "http",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "port": "{{puerto}}",
+                    "path": [
+                        "api",
+                        "modulo",
+                        "entidad",
+                        "actualizar-imagen",
+                        "imagen",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "description": "Esta carpeta contendra los requests que se hacen a Entidad",
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "ace0b78d-0027-4ed2-af73-9b98bb3af435",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "2f980c25-675d-4ab4-9e58-98c0e390b672",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "_postman_isSubFolder": true
+}

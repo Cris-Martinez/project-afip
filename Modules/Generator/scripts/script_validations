@@ -1,0 +1,7 @@
+# script_validations $1 $2 $3 $4
+general="`echo $4  | awk -f scripts/general_validations.awk`"
+insert="`echo $4   | awk -f scripts/insert_validations.awk -v entidad=$3`"
+messages="`echo $4 | awk -f scripts/messages_validations.awk`"
+file=../$1/Http/Controllers/$2Controller.php
+awk -f scripts/controller.awk -v g="$general" i="$insert" m="$messages" $file > controller.txt
+mv controller.txt $file

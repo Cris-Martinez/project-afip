@@ -1,0 +1,6 @@
+# script_migration $1 $2 $3 $4
+cd ../..
+php artisan module:make-migration create_$3_table $1
+cd Modules/Generator
+scripts/script_fields $1 $2 $3 $4
+sleep 1

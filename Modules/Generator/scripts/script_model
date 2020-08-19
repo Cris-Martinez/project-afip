@@ -1,0 +1,4 @@
+# script_model $1 $2 $3 $4
+cat model/Entidad.php |sed s/Entidad/$2/g |sed s/entidad/$3/g |sed s/Modulo/$1/g > entidad.txt
+fillables=`echo $4|awk -f scripts/fillables.awk`
+awk -f scripts/model.awk -v campos="$fillables" entidad.txt > ../$1/Entities/$2.php

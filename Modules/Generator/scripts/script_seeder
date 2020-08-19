@@ -1,0 +1,4 @@
+# script_seeder $1 $2
+cd ../..
+php artisan module:make-seed $2 $1
+cd Modules/Generator

@@ -1,0 +1,4 @@
+# script_controller $1 $2 $3
+file=../$1/Http/Controllers/$2Controller.php
+cat controller/EntidadController.php |sed s/Modulo/$1/g |sed s/Entidad/$2/g |sed s/entidad/$3/g > $file
+scripts/script_validations $1 $2 $3 $4

@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "1a5b571a-a179-4cb8-aa61-71edcfc20d91",
+		"name": "Modulo",
+		"description": "Test Suite de Postman para el Modulo.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": []
+		},
+		{
+			"name": "Application",
+			"item": []
+		},
+		{
+			"name": "Reports",
+			"item": []
+		},
+		{
+			"name": "ModuloCore",
+			"item": [
+				{
+					"name": "Entidad",
+					"item": [
+						{
+							"name": "Entidades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

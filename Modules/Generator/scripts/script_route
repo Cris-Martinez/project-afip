@@ -1,0 +1,6 @@
+# script_route $1 $2 $3
+entidad=`echo $3 |tr '_' '-'`
+fields=`cat scripts/routes.txt | sed s/entidad/$entidad/g | sed s/Entidad/$2/g`
+file=../$1/Routes/web.php
+awk -f scripts/routes.awk -v campos="$fields" $file > routes.new
+mv routes.new ../$1/Routes/web.php

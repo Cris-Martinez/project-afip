@@ -1,0 +1,163 @@
+{Entidad=CategoriaIva,           
+ Atributo=['nombre:string:80:fillable:unique']
+ Restriccion=[]
+ Relacion=[]
+}
+{Entidad=TipoComprobante,
+ Atributo=['nombre:string:80:fillable:unique
+-signo:integer:fillable
+-nombre_corto:string:10:fillable']
+ Restriccion=[]
+ Relacion=[]
+}
+{Entidad=TipoImpuesto,
+ Atributo=['nombre:string:80:fillable:unique']
+ Restriccion=[]
+ Relacion=[]
+}
+{Entidad=TipoIva,
+ Atributo=['nombre:string:80:fillable:unique
+-porcentaje:float:fillable']
+ Restriccion=[]
+ Relacion=[]
+}
+{Entidad=TipoProducto,
+ Atributo=['nombre:string:80:fillable:unique']
+ Restriccion=[]
+ Relacion=[]
+}
+{Entidad=TipoUbicacion,
+ Atributo=['nombre:string:80:fillable:unique']
+ Restriccion=[]
+ Relacion=[]
+}
+{Entidad=UnidadMedidas,
+ Atributo=['nombre:string:80:fillable:unique']
+ Restriccion=[]
+ Relacion=[]
+}
+{Entidad=Producto,
+ Atributo=['nombre:string:80:fillable:unique
+-vencimiento:date:fillable:nullable
+-costo:float:fillable:nullable
+-precio:float:fillable:nullable
+-bulto:integer:default:1:fillable
+-pieza:integer:default:1:fillable
+ Restriccion=[]
+ Relacion=[TipoProducto,TipoIva,UnidadMedida]
+}
+{Entidad=Ubicacion,
+ Atributo=['nombre:string:80:fillable:unique:fillable
+-descripcion:string:80:fillable:nullable']
+ Restriccion=[]
+ Relacion=[TipoUbicacion,Ubicacion]
+}
+{Entidad=ProductoUbicacion,
+ Atributo=[]
+ Restriccion=[]
+ Relacion=[ProductoUbicacion]
+}
+{Entidad=Stock,
+ Atributo=[
+-bulto:integer:fillable
+-pieza:integer:fillable
+-cantidad:float:fillable']
+ Restriccion=[]
+ Relacion=[Producto,Ubicacion]
+}
+{Entidad=Despiece,
+ Atributo=[
+-cantidad:float:fillable']
+ Restriccion=[]
+ Relacion=[Stock]
+}
+{Entidad=ClienteProveedor,
+ Atributo=['nombre:string:80:unique:fillable
+-cuit:string:11:fillable
+-domicilio:string:80:fillable:nullable
+-telefono:string:20:fillable:nullable
+-celular:string:20:fillable:nullable
+-contacto:string:80:fillable:nullable
+-email:string:80:fillable:nullable
+]
+ Restriccion=[]
+ Relacion=[CategoriaIva]
+}
+{Entidad=ProveedorProducto,
+ Atributo=[
+-costo:float:fillable']
+ Restriccion=[]
+ Relacion=[ClienteProveedor,Producto]
+}
+{Entidad=Compra,
+ Atributo=[
+-fecha:date:fillable
+-numero:integer:fillable
+-total:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-exento:float:fillable']
+ Restriccion=[]
+ Relacion=[TipoComprobante,ClienteProveedor]
+}
+{Entidad=DetalleCompra,
+ Atributo=[
+-bulto:integer:fillable
+-pieza:integer:fillable
+-cantidad:float:fillable
+-precio:float:fillable
+-exento:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-porcentaje_iva:float:fillable
+]
+ Restriccion=[]
+ Relacion=[Compra,Producto,Ubicacion]
+}
+{Entidad=Venta,
+ Atributo=[
+-fecha:date:fillable
+-numero:integer:fillable
+-total:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-exento:float:fillable']
+ Restriccion=[]
+ Relacion=[TipoCompronate,ClienteProveedor]
+}
+{Debil=DetalleVenta,
+ Atributo=['
+-bulto:integer:fillable
+-pieza:integer:fillable
+-cantidad:float:fillable
+-precio:float:fillable
+-exento:float:fillable
+-neto:float:fillable
+-iva:float:fillable
+-porcentaje_iva:float:fillable
+ Restriccion=[]
+ Relacion=[Venta,Producto,Ubicacion]
+}
+{Entidad=Movimiento,
+ Atributo=['tipo_comprobante_id:references:tipo_comprobantes:fillable
+-fecha:date:fillable
+-numero:integer:fillable']
+ Restriccion=[]
+ Relacion=[TipoComprobante]
+}
+{Debil=DetalleMovimiento,
+ Atributo=[
+-bulto:integer:fillable
+-pieza:integer:fillable
+-cantidad:float:fillable
+-precio:float:fillable']
+ Restriccion=[]
+ Relacion=[Movimiento,Producto]
+}
+{Debil=DetalleImpuesto,
+ Atributo=[
+-importe:float:fillable
+-porcentaje:float:fillable']
+ Restriccion=[]
+ Relacion=[Compra,TipoImpuesto]
+}

@@ -1,0 +1,8 @@
+sh generar BancosCore
+sh generar ComprasCore
+sh generar ContabilidadCentralCore
+sh generar ExpedientesCore
+sh generar InventarioCore
+sh generar LiquidacionSueldosCore
+sh generar RecursosHumanosCore
+sh generar VentasCore
