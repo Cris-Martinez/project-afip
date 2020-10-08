@@ -13,7 +13,7 @@ class UsuariosTableSeeder extends Seeder
           'id' => '1',
           'nombre' => 'super administrador',
           'role' => 'SUPER_ADMINISTRADOR',
-          'email' => 'superadministrador@rendace.com',
+          'email' => 'superadministrador@afip.com',
           'password' => '123',
           'confirmation_hash' => 'xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-001' 
       ]);
@@ -22,7 +22,7 @@ class UsuariosTableSeeder extends Seeder
           'id' => '2',
           'nombre' => 'administrador',
           'role' => 'ADMINISTRADOR',
-          'email' => 'administrador@rendace.com',
+          'email' => 'administrador@afip.com',
           'password' => '123',
           'confirmation_hash' => 'xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-002' 
       ]);
@@ -31,7 +31,7 @@ class UsuariosTableSeeder extends Seeder
           'id' => '3',
           'nombre' => 'usuario comun',
           'role' => 'USUARIO',
-          'email' => 'usuario@rendace.com',
+          'email' => 'usuario@afip.com',
           'password' => '123',
           'confirmation_hash' => 'xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-003' 
       ]);
