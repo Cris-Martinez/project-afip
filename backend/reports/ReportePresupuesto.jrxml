@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RepuestoPresupuesto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc0a1500-06d7-44d8-bd66-59f5d5b0c1fb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<group name="cobranza">
+		<groupExpression><![CDATA[$F{Id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="4" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement x="378" y="15" width="121" height="13" uuid="07dda6df-9b31-40b3-aca9-d4e78e2654c3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRESUPUESTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="91" width="72" height="13" uuid="f4ce760c-9af7-436e-80d7-1fbee0cd49ff"/>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="90" width="33" height="13" uuid="8c0c9eec-84af-4fd2-83ee-885d0756cc8d"/>
+				<text><![CDATA[CUIT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="39" width="55" height="11" uuid="60c61143-45af-47b4-8fc6-cc41a0cdf56a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="29" width="55" height="11" uuid="d75d7f7b-c795-49ce-a700-3ad051082aab"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Numero: 0001-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="4" width="172" height="11" uuid="a8930950-d631-46bd-976e-255413afef54"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NO VALIDO COMO COMPROBANTE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="12" y="117" width="538" height="1" uuid="2f9ab510-6ff7-41f1-a637-ccf41b408c08"/>
+			</line>
+			<staticText>
+				<reportElement x="99" y="2" width="180" height="13" uuid="eeacb37e-e529-452d-b177-ff01666ff81e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRUPO RENDACE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="102" width="46" height="13" uuid="2f0011a5-fc54-4d76-9b9f-2e678a9444e6"/>
+				<text><![CDATA[Domicilio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="16" width="179" height="11" uuid="62b6fc9f-3d1f-41d0-90e6-d1d0a2678c67"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[XXXXXXXXXXXXXXXXXXXXXXXXX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="25" width="179" height="11" uuid="c2e7a205-fd67-49af-a3b2-e5d488ba0f4c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(4105) San Miguel de Tucumán - Tucumán]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="7" width="39" height="20" uuid="e6e9117e-4378-4893-9fee-aeab30514159"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement x="14" y="4" width="77" height="74" uuid="8d8177d8-c07b-4fba-95f2-55d64a8ee00a"/>
+				<imageExpression><![CDATA["/resources/assets/images/grupo_rendace.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="378" y="50" width="104" height="11" uuid="9928bbc0-9157-4bbd-aa63-5b2be0d1639d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CUIT: XX-XXXXXXXX-X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="62" width="104" height="11" uuid="5eb0ceae-1008-4ba1-afd5-de78d1e43cf0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ing. Brutos: XXXXXXXX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="73" width="147" height="11" uuid="8c9bfcab-cc23-4bcf-870e-36d0eae921e2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Inicio de Actividades dd/mm/yyyy]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="35" width="179" height="11" uuid="f73c00e7-5aa8-4ae6-b598-161f173f9f81"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tel.Fax: (0381) XXXXXXXX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="46" width="179" height="11" uuid="020a24ca-4af2-4725-90d6-5e28bfa2495f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Web: www.gruporendace.com.ar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="57" width="179" height="11" uuid="981f2b82-2700-4677-babb-1b15ce347e2a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[e-mail: info@gruporendace.com.ar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="68" width="179" height="11" uuid="1770cef4-5442-447e-8c37-932979bd2921"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[IVA RESPONSABLE INSCRIPTO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="12" y="88" width="538" height="1" uuid="6dca4c98-7499-4090-9af6-3dda559b8b17"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="145" y="1" width="100" height="20" uuid="7fd978ca-5eba-43bc-8c1c-c9ffe54e5fb1"/>
+				<text><![CDATA[.Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="1" width="53" height="20" uuid="dbe91231-ff14-489f-9f1d-80b2b0d68556"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="1" width="67" height="20" uuid="9b35a5e5-cd2a-4f9a-b7c4-fb6e9f5c3e0a"/>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="1" width="60" height="20" uuid="69ad4435-ca12-4924-a45b-e5d60a29b9ab"/>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+			<line>
+				<reportElement x="16" y="21" width="534" height="1" uuid="afdad7fb-750c-48f7-be46-f51b759e535e"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="23" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="33" splitType="Stretch">
+			<line>
+				<reportElement x="16" y="0" width="534" height="1" uuid="569340ab-d8c3-4023-bb63-262feb86b29f"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="5" width="162" height="20" uuid="a88b7225-e2c6-43a3-b398-5ed0c5b70a06"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Firma]]></text>
+			</staticText>
+			<line>
+				<reportElement x="11" y="26" width="187" height="1" uuid="949e06ca-da58-4cd7-921f-16d00b211682"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

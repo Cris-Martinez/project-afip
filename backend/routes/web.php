@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +14,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('api/application/generic-search', 'AppController@genericSearch');
+
+Route::prefix('api/reportes')->group(function () {
+    Route::get('check', 'ReportController@check');
+    Route::post('generate', 'ReportController@generate');
+});
+

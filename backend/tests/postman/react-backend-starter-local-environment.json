@@ -1,0 +1,391 @@
+{
+	"info": {
+		"name": "react-backend-starter",
+		"_postman_id": "8a4b61bc-6b09-c2a3-e952-59e30fb4090a",
+		"description": "Colleccion de REST requests para el proyecto semilla react-backend-starter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticacion",
+			"description": "Todos los requests relacionados a la authenticacion, authorizacion, etc. van a estar dentro de esta carpeta.",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@b12.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authenticate",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authenticate"
+							]
+						},
+						"description": "loguear un cliente usando email y password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sistema",
+			"description": "",
+			"item": [
+				{
+					"name": "Configuracion",
+					"description": "Gestion de parametros del sistema, los parametros son variables globales que se almacenan en una tabla para ser consultadas desde el frontend. \nPor ejemplo APP_NAME seria el valor que contiene el nombre de la applicacion. ",
+					"item": [
+						{
+							"name": "http://{{url}}:{{puerto}}/api/configuracion/",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJub21icmUiOiJBZG1pbiIsInJvbGVzIjoiY3JlYXJfdXN1YXJpb3MsbW9kaWZpY2FyX3VzdWFyaW9zLGxpc3Rhcl91c3VhcmlvcyxsaXN0YXJfcGVyZmlsLGxpc3Rhcl9jb25maWcsZWxpbWluYXJfdXN1YXJpb3MsY2FtYmlhcl9wZXJtaXNvc191c3Vhcmlvcyxtb2RpZmljYXJfY29uZmlnLGNyZWFyX2VtcGxlYWRvcyxjcmVhcl9hc2lnbmFjaW9uZXMsY3JlYXJfcmV0ZW5jaW9uZXMsY3JlYXJfdGlwb19ub3ZlZGFkZXMsY3JlYXJfY2F0ZWdvcmlhcyxjcmVhcl9lc3RhZG9zX2NpdmlsZXMsY3JlYXJfbml2ZWxfZXN0dWRpb3MsY3JlYXJfcGFyZW50ZXNjb3MsY3JlYXJfc2l0X2xhYixjcmVhcl90aXBfZG9jLGNyZWFyX2ZlcmlhZG9zLGNyZWFyX2hvcmFyaW9zLGNyZWFyX3BsYW50aWxsYXNfaG9yYXJpb3MsY3JlYXJfdGlwb19hdXNlbmNpYXMsY3JlYXJfdGlwb19pbmFzaXN0ZW5jaWEsY3JlYXJfYXVzZW5jaWFzLGNyZWFyX2luYXNpc3RlbmNpYXMsbW9kaWZpY2FyX2VtcGxlYWRvcyxtb2RpZmljYXJfZW1wbGVhZG9zX2N1ZW50YSxtb2RpZmljYXJfYXNpZ25hY2lvbmVzLG1vZGlmaWNhcl9yZXRlbmNpb25lcyxtb2RpZmljYXJfdGlwb19ub3ZlZGFkZXMsbW9kaWZpY2FyX2NhdGVnb3JpYXMsbW9kaWZpY2FyX2VzdGFkb19jaXZpbGVzLG1vZGlmaWNhcl9uaXZlbF9lc3R1ZGlvcyxtb2RpZmljYXJfcGFyZW50ZXNjb3MsbW9kaWZpY2FyX3NpdF9sYWIsbW9kaWZpY2FyX3RpcF9kb2MsbW9kaWZpY2FyX2ZlcmlhZG9zLG1vZGlmaWNhcl9ob3Jhcmlvcyxtb2RpZmljYXJfcGxhbnRpbGxhX2hvcmFyaW9zLG1vZGlmaWNhcl90aXBvX2F1c2VuY2lhcyxtb2RpZmljYXJfdGlwb19pbmFzaXN0ZW5jaWEsbW9kaWZpY2FyX2F1c2VuY2lhcyxtb2RpZmljYXJfaW5hc2lzdGVuY2lhcyxtb2RpZmljYXJfcmVnaXN0cm9zX3JlbG9qLGxpc3Rhcl9lbXBsZWFkb3MsbGlzdGFyX2VtcGxlYWRvc19wcm95ZWN0b3MsbGlzdGFyX2FzaWduYWNpb25lcyxsaXN0YXJfcmV0ZW5jaW9uZXMsbGlzdGFyX3RpcG9fbm92ZWRhZGVzLGxpc3Rhcl9pbmZvcm1lX25vdmVkYWRlcyxsaXN0YXJfZXNjYWxhZm9uLGxpc3Rhcl9jYXRlZ29yaWFzLGxpc3Rhcl9lc3RhZG9fY2l2aWxlcyxsaXN0YXJfbml2ZWxfZXN0dWRpb3MsbGlzdGFyX3BhcmVudGVzY29zLGxpc3Rhcl9zaXRfbGFiLGxpc3Rhcl90aXBfZG9jLGxpc3Rhcl9mZXJpYWRvLGxpc3Rhcl9ob3JhcmlvcyxsaXN0YXJfcGxhbnRpbGxhX2hvcmFyaW9zLGxpc3Rhcl90aXBvX2F1c2VuY2lhcyxsaXN0YXJfdGlwb19pbmFzaXN0ZW5jaWEsbGlzdGFyX2F1c2VuY2lhcyxsaXN0YXJfaW5hc2lzdGVuY2lhcyxsaXN0YXJfcmVsb2osZWxpbWluYXJfYXNpZ25hY2lvbmVzLGVsaW1pbmFyX3JldGVuY2lvbmVzLGVsaW1pbmFyX2F1c2VuY2lhcyxlbGltaW5hcl9pbmFzaXN0ZW5jaWFzLHByaW50X2VtcGxlYWRvcyxwcmludF9lbXBsZWFkb3NfcHJveWVjdG9zLHByaW50X2F1c2VuY2lhcyxwcmludF9pbmFzaXN0ZW5jaWFzLHByaW50X2luZl9ub3YsY3JlYXJfZXhwZWRpZW50ZXMsY3JlYXJfcGFzZXNfZXhwZWRpZW50ZXMsY3JlYXJfYXN1bnRvcyxjcmVhcl9jYXVzYW50ZXMsY3JlYXJfdGlwb190cmFtaXRlcyxtb2RpZmljYXJfZXhwZWRpZW50ZXMsbW9kaWZpY2FyX3Bhc2VzX2V4cGVkaWVudGVzLG1vZGlmaWNhcl9mZWNoYV9wYXNlc19leHBlZGllbnRlcyxtb2RpZmljYXJfYXN1bnRvcyxtb2RpZmljYXJfY2F1c2FudGVzLG1vZGlmaWNhcl90aXBvX3RyYW1pdGVzLG1vZGlmaWNhcl9leHBlZGllbnRlX29maWNpbmFzLGxpc3Rhcl9leHBlZGllbnRlcyxsaXN0YXJfYXN1bnRvcyxsaXN0YXJfY2F1c2FudGVzLGxpc3Rhcl90aXBvX3RyYW1pdGVzLGxpc3Rhcl9leHBlZGllbnRlX29maWNpbmFzLGVsaW1pbmFyX3Bhc2VzX2V4cGVkaWVudGVzLGNyZWFyX2FzaWduYWNpb25lc3NoLGNyZWFyX3BlcnNvbmFzLG51ZXZvX21vdmltaWVudG9fcGVycyxudWV2b19lc3RhZG9fcGVycyxudWV2b19hbnRlY19wZXJzLGNyZWFyX2dydXBvX2ZhbWlsaWFyLGNyZWFyX3NvbF9oYWIsY3JlYXJfdGlwb19hbnRlY2VkZW50ZXMsY3JlYXJfdGlwb19lc3RhZG9zLGNyZWFyX3RpcG9fcHJvdG90aXBvcyxjcmVhcl90aXBvX2VzY3JpdHVyYXMsY3JlYXJfY29udmVuaW9zLGNyZWFyX2VzY3JpYmFuaWFzLGNyZWFyX3RpcG9fbW9uZWRhcyxjcmVhcl9vcmlnaW5hbnRlLGNyZWFyX2RwdG9zLGNyZWFyX2xvY2FsaWRhZCxjcmVhcl9wcm9ncmFtYSxjcmVhcl9iYXJyaW9zLGNyZWFyX3Byb3llY3RvLGNyZWFyX3Byb3RvdGlwb3MsY3JlYXJfdGlwb19maW5hbmNpYWNpb25lcyxjcmVhcl9uYWNpb25hbGlkYWRlcyxtb2RpZmljYXJfYXNpZ25hY2lvbmVzc2gsbW9kaWZpY2FyX3BlcnNvbmFzLG1vZGlmaWNhcl9zb2xfaGFiLG1vZGlmaWNhcl90aXBvX2FudGVjZWRlbnRlcyxtb2RpZmljYXJfdGlwb19lc3RhZG9zLG1vZGlmaWNhcl90aXBvX3Byb3RvdGlwb3MsbW9kaWZpY2FyX3RpcG9fZXNjcml0dXJhcyxtb2RpZmljYXJfY29udmVuaW9zLG1vZGlmaWNhcl9lc2NyaWJhbmlhcyxtb2RpZmljYXJfdGlwb19tb25lZGFzLG1vZGlmaWNhcl9vcmlnaW5hbnRlcyxtb2RpZmljYXJfZHB0b3MsbW9kaWZpY2FyX2xvY2FsaWRhZGVzLG1vZGlmaWNhcl9wcm9ncmFtYXMsbW9kaWZpY2FyX2JhcnJpb3MsbW9kaWZpY2FyX3Byb3llY3Rvcyxtb2RpZmljYXJfcHJvdG90aXBvcyxtb2RpZmljYXJfdGlwb19maW5hbmNpYWNpb25lcyxtb2RpZmljYXJfbmFjaW9uYWxpZGFkZXMsbGlzdGFyX2FzaWduYWNpb25lc3NoLGxpc3Rhcl9wZXJzb25hcyxsaXN0YXJfc29sX2hhYixsaXN0YXJfc29jaWFsZXMsbGlzdGFyX3RpcG9fYW50ZWNlZGVudGVzLGxpc3Rhcl90aXBvX2VzdGFkbyxsaXN0YXJfdGlwb19wcm90b3RpcG9zLGxpc3Rhcl90aXBvX2VzY3JpdHVyYXMsbGlzdGFyX2NvbnZlbmlvcyxsaXN0YXJfZXNjcmliYW5pYXMsbGlzdGFyX3RpcG9fbW9uZWRhcyxsaXN0YXJfb3JpZ2luYW50ZXMsbGlzdGFyX2RwdG9zLGxpc3Rhcl9sb2NhbGlkYWRlcyxsaXN0YXJfcHJvZ3JhbWFzLGxpc3Rhcl9iYXJyaW9zLGxpc3Rhcl9wcm95ZWN0b3MsbGlzdGFyX3Byb3RvdGlwb3MsbGlzdGFyX3RpcG9fZmluYW5jaWFjaW9uZXMsbGlzdGFyX25hY2lvbmFsaWRhZGVzLGVsaW1pbmFyX21vdmltaWVudG9fcGVycyxlbGltaW5hcl9lc3RhZG9fcGVycyxlbGltaW5hcl9hbnRlY19wZXJzLGVsaW1pbmFyX2dydXBvX2ZhbWlsaWFyLGxpc3Rhcl9tYW50ZW5pbWllbnRvLGVsaW1pbmFyX3JlZ2lzdHJvc19yZWxvamVzIiwiaWQiOjYxMCwiZW1haWwiOiJhZG1pbkBkcGkuY29tIiwic3ViIjo2MTAsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4ODIyXC9hdXRoZW50aWNhdGUiLCJpYXQiOjE1MTE5OTc4NzAsImV4cCI6MTUxMjAyNjY3MCwibmJmIjoxNTExOTk3ODcwLCJqdGkiOiJmZTQ3YWY4MWE2OGRmMzA2Y2I2NjE0NmIzNzA3NTg1NiJ9.Ru5dEBMaB8OWyDOGeWfE_IzZ3Zbo686elKLchDUuI7Q"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "empleado_id",
+											"value": "7",
+											"type": "text"
+										},
+										{
+											"key": "nombre",
+											"value": "juan",
+											"type": "text"
+										},
+										{
+											"key": "tipo",
+											"value": "PSU",
+											"type": "text"
+										},
+										{
+											"key": "cuil",
+											"value": "20275941892",
+											"type": "text"
+										},
+										{
+											"key": "fecha_nacimiento",
+											"value": "2010-01-01",
+											"type": "text"
+										},
+										{
+											"key": "domicilio",
+											"value": "lomas de tafi",
+											"type": "text"
+										},
+										{
+											"key": "telefono",
+											"value": "4232124",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/configuracion",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"configuracion"
+									]
+								},
+								"description": "Listado de parametros del sistema"
+							},
+							"response": []
+						},
+						{
+							"name": "http://{{url}}:{{puerto}}/api/configuracion/1",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJub21icmUiOiJBZG1pbiIsInJvbGVzIjoiY3JlYXJfdXN1YXJpb3MsbW9kaWZpY2FyX3VzdWFyaW9zLGxpc3Rhcl91c3VhcmlvcyxsaXN0YXJfcGVyZmlsLGxpc3Rhcl9jb25maWcsZWxpbWluYXJfdXN1YXJpb3MsY2FtYmlhcl9wZXJtaXNvc191c3Vhcmlvcyxtb2RpZmljYXJfY29uZmlnLGNyZWFyX2VtcGxlYWRvcyxjcmVhcl9hc2lnbmFjaW9uZXMsY3JlYXJfcmV0ZW5jaW9uZXMsY3JlYXJfdGlwb19ub3ZlZGFkZXMsY3JlYXJfY2F0ZWdvcmlhcyxjcmVhcl9lc3RhZG9zX2NpdmlsZXMsY3JlYXJfbml2ZWxfZXN0dWRpb3MsY3JlYXJfcGFyZW50ZXNjb3MsY3JlYXJfc2l0X2xhYixjcmVhcl90aXBfZG9jLGNyZWFyX2ZlcmlhZG9zLGNyZWFyX2hvcmFyaW9zLGNyZWFyX3BsYW50aWxsYXNfaG9yYXJpb3MsY3JlYXJfdGlwb19hdXNlbmNpYXMsY3JlYXJfdGlwb19pbmFzaXN0ZW5jaWEsY3JlYXJfYXVzZW5jaWFzLGNyZWFyX2luYXNpc3RlbmNpYXMsbW9kaWZpY2FyX2VtcGxlYWRvcyxtb2RpZmljYXJfZW1wbGVhZG9zX2N1ZW50YSxtb2RpZmljYXJfYXNpZ25hY2lvbmVzLG1vZGlmaWNhcl9yZXRlbmNpb25lcyxtb2RpZmljYXJfdGlwb19ub3ZlZGFkZXMsbW9kaWZpY2FyX2NhdGVnb3JpYXMsbW9kaWZpY2FyX2VzdGFkb19jaXZpbGVzLG1vZGlmaWNhcl9uaXZlbF9lc3R1ZGlvcyxtb2RpZmljYXJfcGFyZW50ZXNjb3MsbW9kaWZpY2FyX3NpdF9sYWIsbW9kaWZpY2FyX3RpcF9kb2MsbW9kaWZpY2FyX2ZlcmlhZG9zLG1vZGlmaWNhcl9ob3Jhcmlvcyxtb2RpZmljYXJfcGxhbnRpbGxhX2hvcmFyaW9zLG1vZGlmaWNhcl90aXBvX2F1c2VuY2lhcyxtb2RpZmljYXJfdGlwb19pbmFzaXN0ZW5jaWEsbW9kaWZpY2FyX2F1c2VuY2lhcyxtb2RpZmljYXJfaW5hc2lzdGVuY2lhcyxtb2RpZmljYXJfcmVnaXN0cm9zX3JlbG9qLGxpc3Rhcl9lbXBsZWFkb3MsbGlzdGFyX2VtcGxlYWRvc19wcm95ZWN0b3MsbGlzdGFyX2FzaWduYWNpb25lcyxsaXN0YXJfcmV0ZW5jaW9uZXMsbGlzdGFyX3RpcG9fbm92ZWRhZGVzLGxpc3Rhcl9pbmZvcm1lX25vdmVkYWRlcyxsaXN0YXJfZXNjYWxhZm9uLGxpc3Rhcl9jYXRlZ29yaWFzLGxpc3Rhcl9lc3RhZG9fY2l2aWxlcyxsaXN0YXJfbml2ZWxfZXN0dWRpb3MsbGlzdGFyX3BhcmVudGVzY29zLGxpc3Rhcl9zaXRfbGFiLGxpc3Rhcl90aXBfZG9jLGxpc3Rhcl9mZXJpYWRvLGxpc3Rhcl9ob3JhcmlvcyxsaXN0YXJfcGxhbnRpbGxhX2hvcmFyaW9zLGxpc3Rhcl90aXBvX2F1c2VuY2lhcyxsaXN0YXJfdGlwb19pbmFzaXN0ZW5jaWEsbGlzdGFyX2F1c2VuY2lhcyxsaXN0YXJfaW5hc2lzdGVuY2lhcyxsaXN0YXJfcmVsb2osZWxpbWluYXJfYXNpZ25hY2lvbmVzLGVsaW1pbmFyX3JldGVuY2lvbmVzLGVsaW1pbmFyX2F1c2VuY2lhcyxlbGltaW5hcl9pbmFzaXN0ZW5jaWFzLHByaW50X2VtcGxlYWRvcyxwcmludF9lbXBsZWFkb3NfcHJveWVjdG9zLHByaW50X2F1c2VuY2lhcyxwcmludF9pbmFzaXN0ZW5jaWFzLHByaW50X2luZl9ub3YsY3JlYXJfZXhwZWRpZW50ZXMsY3JlYXJfcGFzZXNfZXhwZWRpZW50ZXMsY3JlYXJfYXN1bnRvcyxjcmVhcl9jYXVzYW50ZXMsY3JlYXJfdGlwb190cmFtaXRlcyxtb2RpZmljYXJfZXhwZWRpZW50ZXMsbW9kaWZpY2FyX3Bhc2VzX2V4cGVkaWVudGVzLG1vZGlmaWNhcl9mZWNoYV9wYXNlc19leHBlZGllbnRlcyxtb2RpZmljYXJfYXN1bnRvcyxtb2RpZmljYXJfY2F1c2FudGVzLG1vZGlmaWNhcl90aXBvX3RyYW1pdGVzLG1vZGlmaWNhcl9leHBlZGllbnRlX29maWNpbmFzLGxpc3Rhcl9leHBlZGllbnRlcyxsaXN0YXJfYXN1bnRvcyxsaXN0YXJfY2F1c2FudGVzLGxpc3Rhcl90aXBvX3RyYW1pdGVzLGxpc3Rhcl9leHBlZGllbnRlX29maWNpbmFzLGVsaW1pbmFyX3Bhc2VzX2V4cGVkaWVudGVzLGNyZWFyX2FzaWduYWNpb25lc3NoLGNyZWFyX3BlcnNvbmFzLG51ZXZvX21vdmltaWVudG9fcGVycyxudWV2b19lc3RhZG9fcGVycyxudWV2b19hbnRlY19wZXJzLGNyZWFyX2dydXBvX2ZhbWlsaWFyLGNyZWFyX3NvbF9oYWIsY3JlYXJfdGlwb19hbnRlY2VkZW50ZXMsY3JlYXJfdGlwb19lc3RhZG9zLGNyZWFyX3RpcG9fcHJvdG90aXBvcyxjcmVhcl90aXBvX2VzY3JpdHVyYXMsY3JlYXJfY29udmVuaW9zLGNyZWFyX2VzY3JpYmFuaWFzLGNyZWFyX3RpcG9fbW9uZWRhcyxjcmVhcl9vcmlnaW5hbnRlLGNyZWFyX2RwdG9zLGNyZWFyX2xvY2FsaWRhZCxjcmVhcl9wcm9ncmFtYSxjcmVhcl9iYXJyaW9zLGNyZWFyX3Byb3llY3RvLGNyZWFyX3Byb3RvdGlwb3MsY3JlYXJfdGlwb19maW5hbmNpYWNpb25lcyxjcmVhcl9uYWNpb25hbGlkYWRlcyxtb2RpZmljYXJfYXNpZ25hY2lvbmVzc2gsbW9kaWZpY2FyX3BlcnNvbmFzLG1vZGlmaWNhcl9zb2xfaGFiLG1vZGlmaWNhcl90aXBvX2FudGVjZWRlbnRlcyxtb2RpZmljYXJfdGlwb19lc3RhZG9zLG1vZGlmaWNhcl90aXBvX3Byb3RvdGlwb3MsbW9kaWZpY2FyX3RpcG9fZXNjcml0dXJhcyxtb2RpZmljYXJfY29udmVuaW9zLG1vZGlmaWNhcl9lc2NyaWJhbmlhcyxtb2RpZmljYXJfdGlwb19tb25lZGFzLG1vZGlmaWNhcl9vcmlnaW5hbnRlcyxtb2RpZmljYXJfZHB0b3MsbW9kaWZpY2FyX2xvY2FsaWRhZGVzLG1vZGlmaWNhcl9wcm9ncmFtYXMsbW9kaWZpY2FyX2JhcnJpb3MsbW9kaWZpY2FyX3Byb3llY3Rvcyxtb2RpZmljYXJfcHJvdG90aXBvcyxtb2RpZmljYXJfdGlwb19maW5hbmNpYWNpb25lcyxtb2RpZmljYXJfbmFjaW9uYWxpZGFkZXMsbGlzdGFyX2FzaWduYWNpb25lc3NoLGxpc3Rhcl9wZXJzb25hcyxsaXN0YXJfc29sX2hhYixsaXN0YXJfc29jaWFsZXMsbGlzdGFyX3RpcG9fYW50ZWNlZGVudGVzLGxpc3Rhcl90aXBvX2VzdGFkbyxsaXN0YXJfdGlwb19wcm90b3RpcG9zLGxpc3Rhcl90aXBvX2VzY3JpdHVyYXMsbGlzdGFyX2NvbnZlbmlvcyxsaXN0YXJfZXNjcmliYW5pYXMsbGlzdGFyX3RpcG9fbW9uZWRhcyxsaXN0YXJfb3JpZ2luYW50ZXMsbGlzdGFyX2RwdG9zLGxpc3Rhcl9sb2NhbGlkYWRlcyxsaXN0YXJfcHJvZ3JhbWFzLGxpc3Rhcl9iYXJyaW9zLGxpc3Rhcl9wcm95ZWN0b3MsbGlzdGFyX3Byb3RvdGlwb3MsbGlzdGFyX3RpcG9fZmluYW5jaWFjaW9uZXMsbGlzdGFyX25hY2lvbmFsaWRhZGVzLGVsaW1pbmFyX21vdmltaWVudG9fcGVycyxlbGltaW5hcl9lc3RhZG9fcGVycyxlbGltaW5hcl9hbnRlY19wZXJzLGVsaW1pbmFyX2dydXBvX2ZhbWlsaWFyLGxpc3Rhcl9tYW50ZW5pbWllbnRvLGVsaW1pbmFyX3JlZ2lzdHJvc19yZWxvamVzIiwiaWQiOjYxMCwiZW1haWwiOiJhZG1pbkBkcGkuY29tIiwic3ViIjo2MTAsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4ODIyXC9hdXRoZW50aWNhdGUiLCJpYXQiOjE1MTE5OTc4NzAsImV4cCI6MTUxMjAyNjY3MCwibmJmIjoxNTExOTk3ODcwLCJqdGkiOiJmZTQ3YWY4MWE2OGRmMzA2Y2I2NjE0NmIzNzA3NTg1NiJ9.Ru5dEBMaB8OWyDOGeWfE_IzZ3Zbo686elKLchDUuI7Q"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "empleado_id",
+											"value": "7",
+											"type": "text"
+										},
+										{
+											"key": "nombre",
+											"value": "juan",
+											"type": "text"
+										},
+										{
+											"key": "tipo",
+											"value": "PSU",
+											"type": "text"
+										},
+										{
+											"key": "cuil",
+											"value": "20275941892",
+											"type": "text"
+										},
+										{
+											"key": "fecha_nacimiento",
+											"value": "2010-01-01",
+											"type": "text"
+										},
+										{
+											"key": "domicilio",
+											"value": "lomas de tafi",
+											"type": "text"
+										},
+										{
+											"key": "telefono",
+											"value": "4232124",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/configuracion/1",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"configuracion",
+										"1"
+									]
+								},
+								"description": "Devuelve UN solo parametro especificado en el ID "
+							},
+							"response": []
+						},
+						{
+							"name": "http://{{url}}:{{puerto}}/api/configuracion",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "descripcion",
+										"value": "nuevo"
+									},
+									{
+										"key": "clave",
+										"value": "nuevo"
+									},
+									{
+										"key": "valor",
+										"value": "valor"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "descripcion",
+											"value": "descripcion de la clave",
+											"type": "text"
+										},
+										{
+											"key": "clave",
+											"value": "sistema.clave_ejemplo",
+											"type": "text"
+										},
+										{
+											"key": "valor",
+											"value": "valor de la clave de ejemplo",
+											"type": "text"
+										},
+										{
+											"key": "creador_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/configuracion",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"configuracion"
+									]
+								},
+								"description": "Agrega un nuevo parametro al sistema."
+							},
+							"response": []
+						},
+						{
+							"name": "http://{{url}}:{{puerto}}/api/configuracion/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "descripcion",
+											"value": "descripcion updated",
+											"type": "text"
+										},
+										{
+											"key": "clave",
+											"value": "nueva.clave",
+											"type": "text"
+										},
+										{
+											"key": "valor",
+											"value": "valor actualizado",
+											"type": "text"
+										},
+										{
+											"key": "creador_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/configuracion/1",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"configuracion",
+										"1"
+									]
+								},
+								"description": "Update de un parametro del sistema"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "App",
+			"description": "En esa carpeta se guardaran todas los requests que son usados por el FrontEnd, generalmente van a ser requests genericos por ejemplo FIELD_EXIST para checkear si el valor de una entidad ya esta cargado en el sistema. Este tipo de requests son utiles para busquedas genericas tambien. ",
+			"item": [
+				{
+					"name": "http://{{url}}:{{puerto}}/api/app/exist/configuracion/clave/xxx",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/app/exist/configuracion/clave/xxx",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"app",
+								"exist",
+								"configuracion",
+								"clave",
+								"xxx"
+							]
+						},
+						"description": "CHEQUEA si un campo de una tabla tiene cierto valor.\n\nuri: /api/app/exist/NOMBRE_MODELO/NOMBRE_CAMPO/VALOR_CAMPO"
+					},
+					"response": []
+				},
+				{
+					"name": "generic-search [like]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/app/generic-search?model=configuracion&textToSearch=%formato%&columnsToBeReturned=descripcion,id&columnsWhereSearch=descripcion::like&columnsToBeOrderBy=id",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"app",
+								"generic-search"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": "configuracion",
+									"equals": true
+								},
+								{
+									"key": "textToSearch",
+									"value": "%formato%",
+									"equals": true
+								},
+								{
+									"key": "columnsToBeReturned",
+									"value": "descripcion,id",
+									"equals": true
+								},
+								{
+									"key": "columnsWhereSearch",
+									"value": "descripcion::like",
+									"equals": true
+								},
+								{
+									"key": "columnsToBeOrderBy",
+									"value": "id",
+									"equals": true
+								}
+							]
+						},
+						"description": "ejemplo del generic-search usando LIKE para buscar en el campo descripcion"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

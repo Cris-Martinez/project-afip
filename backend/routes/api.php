@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['api']], function () {
+    Route::get('/', function() {
+      //return Response::json(['error' => 'disabled_user'], 401);
+    });
+   // Route::post('/authenticate', 'JwtController@authenticate');
+    // Route::group(['middleware' => 'jwt.auth'], function () {
+    //     Route::get( '/app/exist/{model}/{column}/{value}', 'AppController@alreadyExist');
+    //     Route::get( '/app/generic-search', 'AppController@genericSearch');
+    //     Route::get('/configuracion/template-de-permisos-de-usuarios', 'ConfiguracionController@getTemplatePermisosUsuarios');
+    //     Route::resource('configuracion', 'ConfiguracionController');
+    // });
 });
+
+
+
+

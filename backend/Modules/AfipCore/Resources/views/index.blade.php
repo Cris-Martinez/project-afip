@@ -6,4 +6,4 @@
     <p>
         This view is loaded from module: {!! config('afipcore.name') !!}
     </p>
-@endsection
+@stop

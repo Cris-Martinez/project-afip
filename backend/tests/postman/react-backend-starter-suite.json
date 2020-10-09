@@ -1,0 +1,801 @@
+{
+	"info": {
+		"_postman_id": "1eb15b85-575d-44c2-8fb7-43178c5e6334",
+		"name": "semilla-backend",
+		"description": "Colleccion de REST requests para el proyecto semilla react-backend-starter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b40ebd3e-3558-4bd9-96ad-1ddde18fa26f",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\",\"bearer \"+jsonData.loginReturnObject.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "superadministrador@acmeinc.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/authenticate",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"authenticate"
+							]
+						},
+						"description": "loguear un cliente usando email y password"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/users",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"users"
+							]
+						},
+						"description": "devuelve el listado de usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/users/1",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"users",
+								"1"
+							]
+						},
+						"description": "devuelve un usuario perticular"
+					},
+					"response": []
+				},
+				{
+					"name": "get-user-to-confirm",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/get-user-to-confirm/f1d2a1a0-5bc7-11e9-8303-7d9ad8c758e4",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"get-user-to-confirm",
+								"f1d2a1a0-5bc7-11e9-8303-7d9ad8c758e4"
+							]
+						},
+						"description": "devuelve un usuario perticular"
+					},
+					"response": []
+				},
+				{
+					"name": "User Confirmation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "confirmation_hash",
+									"value": "f1d2a1a0-5bc7-11e9-8303-7d9ad8c758e4",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/user-confirmation/",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"user-confirmation",
+								""
+							]
+						},
+						"description": "devuelve un usuario perticular"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permisos de Usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/get-user-permissions",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"get-user-permissions"
+							]
+						},
+						"description": "devuelve los permisos del usuario logueado mergueados con los del sistema."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permisos de un Usuario Particular",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/get-user-permissions/2",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"get-user-permissions",
+								"2"
+							]
+						},
+						"description": "devuelve los permisos de un usuario en particular basado en el ID pasado en la URL"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Permisos de un Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "permisos",
+									"value": "{\n  \"usuarios\": {\n\"putear_usuarios\": {\n      \"label\": \"Putear Usuarios\",\n      \"tooltip\": \"El usuario tendra la habilidad de crear otros usuarios \",\n      \"importancia\": \"alta\",\n      \"value\": true\n    },\n    \"crear_usuarios\": {\n      \"label\": \"Crear Usuarios\",\n      \"tooltip\": \"El usuario tendra la habilidad de crear otros usuarios \",\n      \"importancia\": \"alta\",\n      \"value\": false\n    },\n    \"editar_permisos_usuarios\": {\n      \"label\": \"Editar Permisos de Usuarios\",\n      \"tooltip\": \"El usuario tendra la habilidad de modificar los permisos de otros usuarios\",\n      \"importancia\": \"alta\",\n      \"value\": false\n    },\n    \"eliminar_usuarios\": {\n      \"label\": \"Eliminar Usuarios\",\n      \"tooltip\": \"El usuario tendra la habilidad de eliminar usuarios del sistema.\",\n      \"importancia\": \"alta\",\n      \"value\": false\n    },\n    \"visualizar_menu_usuarios\": {\n      \"label\": \"Visualizar Menu de Usuarios\",\n      \"tooltip\": \"El usuario tendra la habilidad visualizar el menu de usuarios en el sistema.\",\n      \"importancia\": \"alta\",\n      \"value\": false\n    }\n  },\n  \"dashboard\": {\n    \"visualizar_menu_dashboard\": {\n      \"label\": \"Visualizar Menu Dashboard\",\n      \"tooltip\": \"El usuario tendra la habilidad visualizar el menu de dasboard en el sistema.\",\n      \"importancia\": \"baja\",\n      \"value\": true\n    },\n    \"eliminar_cards_en_menu\": {\n      \"label\": \"Visualizar Menu Dashboard\",\n      \"tooltip\": \"El usuario va a poder manejar esto tb\",\n      \"importancia\": \"baja\",\n      \"value\": false\n    }\n  }\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/update-user-permissions/1",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"update-user-permissions",
+								"1"
+							]
+						},
+						"description": "update de permisos de usuario, se envia el json completo."
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "cualkier nombre",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "SUPER_ADMINISTRADOR",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jpgonzalezquinteros@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "habilitado",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/users",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"users"
+							]
+						},
+						"description": "update de permisos de usuario, se envia el json completo."
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "dador_carga@uvertrac.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/authentication/user-forgotpassword",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"authentication",
+								"user-forgotpassword"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Todos los requests relacionados a la authenticacion, authorizacion, etc. van a estar dentro de esta carpeta."
+		},
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "Configuracion",
+					"item": [
+						{
+							"name": "Listado de Configuraciones",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/application/configuracion",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"application",
+										"configuracion"
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/application/configuracion",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"application",
+										"configuracion"
+									]
+								},
+								"description": "Listado de parametros del sistema"
+							},
+							"response": []
+						},
+						{
+							"name": "Show una configuracion",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/application/configuracion/1",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"application",
+										"configuracion",
+										"1"
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/application/configuracion/1",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"application",
+										"configuracion",
+										"1"
+									]
+								},
+								"description": "Devuelve UN solo parametro especificado en el ID "
+							},
+							"response": []
+						},
+						{
+							"name": "Insert Configuracion",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "descripcion",
+											"value": "descripcion de la clave",
+											"type": "text"
+										},
+										{
+											"key": "clave",
+											"value": "sistema.clave_ejemplo",
+											"type": "text"
+										},
+										{
+											"key": "valor",
+											"value": "valor de la clave de ejemplo",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/application/configuracion",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"application",
+										"configuracion"
+									]
+								},
+								"description": "Agrega un nuevo parametro al sistema."
+							},
+							"response": []
+						},
+						{
+							"name": "Update Configuracion",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "descripcion",
+											"value": "descripcion updated",
+											"type": "text"
+										},
+										{
+											"key": "clave",
+											"value": "nueva.clave",
+											"type": "text"
+										},
+										{
+											"key": "valor",
+											"value": "valor actualizado",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{puerto}}/api/application/configuracion/1",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"application",
+										"configuracion",
+										"1"
+									]
+								},
+								"description": "Update de un parametro del sistema"
+							},
+							"response": []
+						}
+					],
+					"description": "Gestion de parametros del sistema, los parametros son variables globales que se almacenan en una tabla para ser consultadas desde el frontend. \nPor ejemplo APP_NAME seria el valor que contiene el nombre de la applicacion. ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "if-exists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/application/exist?module=Application&model=configuracion&column=clave&value=application.app_name",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"application",
+								"exist"
+							],
+							"query": [
+								{
+									"key": "module",
+									"value": "Application"
+								},
+								{
+									"key": "model",
+									"value": "configuracion"
+								},
+								{
+									"key": "column",
+									"value": "clave"
+								},
+								{
+									"key": "value",
+									"value": "application.app_name"
+								}
+							]
+						},
+						"description": "CHEQUEA si un campo de una tabla tiene cierto valor.\n\nuri: /api/app/exist/NOMBRE_MODELO/NOMBRE_CAMPO/VALOR_CAMPO"
+					},
+					"response": []
+				},
+				{
+					"name": "quick-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "module",
+									"value": "uvertraccore",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "dadorcarga",
+									"type": "text"
+								},
+								{
+									"key": "column",
+									"value": "habilitado",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "model_id",
+									"value": "17",
+									"type": "text"
+								},
+								{
+									"key": "use_audit",
+									"value": "true",
+									"description": "agrega el ID del usuario logueado al campo updated_by",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/application/quick-update",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"application",
+								"quick-update"
+							]
+						},
+						"description": "CHEQUEA si un campo de una tabla tiene cierto valor.\n\nuri: /api/app/exist/NOMBRE_MODELO/NOMBRE_CAMPO/VALOR_CAMPO"
+					},
+					"response": []
+				},
+				{
+					"name": "generic-search [like]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{url}}:{{puerto}}/api/application/generic-search?module=application&model=configuracion&textToSearch=%application%&columnsToBeReturned=clave,valor&columnsWhereSearch=clave::like&columnsToBeOrderBy=id",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"application",
+								"generic-search"
+							],
+							"query": [
+								{
+									"key": "module",
+									"value": "application"
+								},
+								{
+									"key": "model",
+									"value": "configuracion",
+									"description": "modelo de Laravel en el que se desea buscar"
+								},
+								{
+									"key": "textToSearch",
+									"value": "%application%",
+									"description": "texto de busqueda, soporta wildcards de sentencia Like si el campo a buscar es ::like"
+								},
+								{
+									"key": "columnsToBeReturned",
+									"value": "clave,valor",
+									"description": "columnas que se desean tener en el resultado que va al frontend"
+								},
+								{
+									"key": "columnsWhereSearch",
+									"value": "clave::like",
+									"description": "columnas donde buscar, se usa el operador :: para especificar como es la busqueda"
+								},
+								{
+									"key": "columnsToBeOrderBy",
+									"value": "id",
+									"description": "usado para ordernar por un campo, se pueden separar por coma"
+								},
+								{
+									"key": "pageSize",
+									"value": "20",
+									"description": "[opcional] usado para especificar la cantidad de lineas por pagina",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"description": "[opcional] usado para especificar la pagina",
+									"disabled": true
+								}
+							]
+						},
+						"description": "ejemplo del generic-search usando LIKE para buscar en el campo descripcion"
+					},
+					"response": []
+				}
+			],
+			"description": "En esa carpeta se guardaran todas los requests que son usados por el FrontEnd, generalmente van a ser requests genericos por ejemplo FIELD_EXIST para checkear si el valor de una entidad ya esta cargado en el sistema. Este tipo de requests son utiles para busquedas genericas tambien. "
+		},
+		{
+			"name": "Reports",
+			"item": [],
+			"description": "Todos los reportes hechos en JasperReports van a ir en este modulo"
+		}
+	]
+}

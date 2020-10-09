@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Provincias" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6cdd3c80-5ad5-4661-b9cc-2aed0cdc28a5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="report" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="entidad" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT * FROM v_provincias]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="pais_id" class="java.lang.String"/>
+	<field name="pais" class="java.lang.String"/>
+	<field name="habilitado" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="54" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="467" y="3" width="86" height="12" uuid="e3b1a031-c9e7-4e89-9195-b27f1fce3b98"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement x="467" y="19" width="86" height="12" uuid="f7f604f5-6fa8-4bf1-a750-96286b135f18"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="421" y="3" width="44" height="12" uuid="db6bc6dd-e1d5-4c21-bac0-9e5538b2a810"/>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="19" width="44" height="12" uuid="2ddbd678-fa3c-4500-b58d-e4fb12bcaf2a"/>
+				<text><![CDATA[HORA:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="9" y="0" width="31" height="20" uuid="10700056-c378-4567-b447-264c040db044"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="0" width="276" height="20" uuid="874fa161-fc18-49af-9e5d-aa4dd5e18a6f"/>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="22" width="547" height="1" uuid="d92ab928-6ee0-49d0-8da4-2854ca3c8f9b"/>
+			</line>
+			<staticText>
+				<reportElement x="365" y="2" width="100" height="20" uuid="a6f2cfa8-2e5f-4e9b-a81a-c530a58e9123"/>
+				<text><![CDATA[Pais]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="">
+				<reportElement x="10" y="0" width="26" height="20" uuid="22de5f44-bc00-4100-bd83-0d1ba50f8121"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="52" y="0" width="276" height="20" uuid="4638a1ff-2a09-48f9-bce3-a480ca8bce95"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="367" y="0" width="158" height="20" uuid="33e85521-a8bd-406b-9521-7ae4aed0d976"/>
+				<textFieldExpression><![CDATA[$F{pais}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="19" splitType="Stretch"/>
+	</summary>
+</jasperReport>

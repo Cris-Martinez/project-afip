@@ -1,0 +1,70 @@
+SERVER='CONTROL-STOCK'
+
+node (SERVER){
+    
+    stage ('checkout'){
+        if(gitlabBranch == 'development'){
+            dir("${env.WORKSPACE}/development") {
+                sh "sudo rm -Rfd ./*"
+            }
+            
+            checkout([$class: 'GitSCM', 
+            branches: [[name: '*/development']], 
+            doGenerateSubmoduleConfigurations: false, 
+            extensions: [[$class: 'RelativeTargetDirectory', 
+                relativeTargetDir: 'development']], 
+                submoduleCfg: [], 
+                userRemoteConfigs: [[credentialsId: 'af61d8f1-d9cb-4f4e-99c6-b23378fb0049', 
+                url: 'git@gitlab.com:dpi-software/ferreteria-rendace/backend.git']]])
+            
+            ROOT = env.WORKSPACE+"/development"
+        }
+        
+        if(gitlabBranch == 'release'){
+            checkout([$class: 'GitSCM', 
+            branches: [[name: '*/release']], 
+            doGenerateSubmoduleConfigurations: false, 
+            extensions: [[$class: 'RelativeTargetDirectory', 
+                relativeTargetDir: 'release']], 
+                submoduleCfg: [], 
+                userRemoteConfigs: [[credentialsId: 'af61d8f1-d9cb-4f4e-99c6-b23378fb0049', 
+                url: 'git@gitlab.com:dpi-software/ferreteria-rendace/backend.git']]])
+        
+            ROOT = env.WORKSPACE+"/release"
+        }
+        
+    }
+    
+    stage ('build'){    
+        
+            //Se copia el archivo de configuracion con la BD
+            sh "cp ${ROOT}/build/files/env ${ROOT}/.env"
+            
+            sh "cd ${ROOT} && composer install"
+            //Se debe verificar si la BD tiene datos primero
+            sh "cd ${ROOT} && php artisan cache:clear"
+            sh "cd ${ROOT} && php artisan config:clear"
+            
+            //ATENCION!!! LaS siguienteS lineaS borraN todas las tablas y las crea nuevamente
+            // solo utilizarlas en la primera ejecucion.
+            //sh "cd ${ROOT} && php artisan migrate:fresh"
+            //sh "cd ${ROOT} && php artisan module:seed"
+            
+            //Las siguientes lineas migran solo las actualizaciones de los siguientes modulos
+            sh "cd ${ROOT} && php artisan module:migrate Authentication"
+            sh "cd ${ROOT} && php artisan module:migrate Application"
+            sh "cd ${ROOT} && php artisan module:migrate InventarioCore"
+            
+            
+            //Se asignan permisos necesarios al usuario del servidor web
+            sh "sudo chown jenkins:www-data -R ${ROOT}/bootstrap/ && sudo chmod 774 -R ${ROOT}/bootstrap/"
+            sh "sudo chown jenkins:www-data -R ${ROOT}/storage/ && sudo chmod 774 -R ${ROOT}/storage/"
+            echo "Backend Installed."
+        
+    }
+    
+    stage ('webserver'){
+    
+        load "${ROOT}/build/webserver.groovy"
+    }
+}
