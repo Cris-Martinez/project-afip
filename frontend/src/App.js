@@ -6,15 +6,18 @@ import {
   Route
 } from "react-router-dom";
 import Login from './pages/login';
+import LoginProvider from './context/loginProvider';
 
 function App(){
   return (
     <Router>
         <Switch>
             <Route path="/" exact>
-            <div className="App-container-login">
-              <Login/>     
-            </div>
+              <LoginProvider>
+                <div className="App-container-login">
+                  <Login/>   
+                </div>
+              </LoginProvider>
             </Route>
         </Switch>
       </Router>
