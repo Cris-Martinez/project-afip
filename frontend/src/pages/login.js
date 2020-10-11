@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Checkbox, Card } from 'antd';
-import requestLogin from '../request/requestLogin';
 import { LoginContext } from '../context/loginProvider';
 
 const Login = (props) => {
