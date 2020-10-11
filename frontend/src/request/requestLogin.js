@@ -6,27 +6,11 @@ axios.defaults.baseURL = `http://127.0.0.1:8000/api/`;
 export default class Request{
 
     static post(path, data = {}, dispatch) {
-        //return axios.post(path, data, { dispatch });
-        return axios.post(path,{
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                      'Accept': 'application/json',
-                      'Content-Type': 'application/json',
-                      'Access-Control-Allow-Origin':'*',
-                    },
+      console.log(axios.post(path, data, { dispatch })); 
+      return axios.post(path, data, { dispatch })
+                    .then(res => { 
+                      console.log(res);
                     })
-                    .then(res => res.json())
-                    .then(data => { 
-                      console.log(data);
-                    })
-                  .catch(err => console.error(err));
-        // return axios.get(path)
-        //             .then(res => {
-        //               console.log(res);
-        //               console.log(res.data);
-        //             })
-
-        
+                    .catch(err => console.error(err));        
     }
 }
