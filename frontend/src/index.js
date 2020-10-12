@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'antd/dist/antd.css';
 import '../src/assets/css/login.css'
+import '../src/assets/css/dashboard.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

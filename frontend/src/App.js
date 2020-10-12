@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Login from './pages/login';
 import LoginProvider from './context/loginProvider';
+import Dashboard from './pages/dashboard';
 
 function App(){
   return (
@@ -18,6 +19,11 @@ function App(){
                   <Login/>   
                 </div>
               </LoginProvider>
+            </Route>
+            <Route path="/dashboard">
+                <div>
+                  <Dashboard/>   
+                </div>
             </Route>
         </Switch>
       </Router>

@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Checkbox, Card } from 'antd';
 import { LoginContext } from '../context/loginProvider';
+import { Link, Redirect } from 'react-router-dom'
 
 const Login = (props) => {
     const layout = {labelCol: { span: 8 },};
     const tailLayout = { wrapperCol: { offset: 21, }, };
     const tailLayoutRemember = { wrapperCol: { offset: 6 }, };
-    const { email, changeEmail, password, changePassword, loginAccess } = useContext(LoginContext);
+    const { email, changeEmail, password, changePassword, loginAccess, isLogged } = useContext(LoginContext);
 
     const onFinish = values => {
         //console.log('Success:', values);
@@ -17,6 +18,12 @@ const Login = (props) => {
         //console.log('Failed:', errorInfo);
     };
     
+    const renderRedirectToDashboard = () => {
+        if (!isLogged) {
+           return <Redirect to='/dashboard' />
+        }
+    }
+
     return (
         <Card className="card-login">
             <Form 
@@ -60,9 +67,19 @@ const Login = (props) => {
             </Form.Item>
         
             <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit" onClick={()=>loginAccess()}>
-                    Submit
-                </Button>
+            {/* {email != "" && password != "" ?
+                <Link to={{
+                    pathname: '/dashboard',
+                    }}> */}
+                    {renderRedirectToDashboard()}
+                    <Button type="primary" htmlType="submit" onClick={()=>loginAccess()}>
+                        Submit
+                    </Button>
+                {/* </Link>
+            : <Button type="primary" htmlType="submit" onClick={()=>loginAccess()}>
+                                Submit
+             </Button>
+            } */}
             </Form.Item>
             </Form>
         </Card>
