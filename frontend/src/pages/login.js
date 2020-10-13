@@ -69,6 +69,10 @@ const Login = (props) => {
                     required: true,
                     message: 'Please input your username!',
                 },
+                {
+                    type: 'email',
+                    message: 'The input is not valid E-mail!',
+                }
                 ]}
             >
                 <Input value={email} onChange={e => changeEmail(e.target.value)}/>
