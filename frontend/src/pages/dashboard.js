@@ -7,7 +7,7 @@ const { Header, Content } = Layout;
 const { Text } = Typography;
 
 const dashboard = () => {
-    const name = "Martinez, Cristian Esteban"
+    const name = "Bou Farah, Pierre Rashid"
     return (
         <Layout style={{background: 'white'}}>
             <Header className="header">

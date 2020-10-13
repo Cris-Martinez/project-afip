@@ -5,9 +5,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Login from './pages/login';
-import LoginProvider from './context/loginProvider';
-import Dashboard from './pages/dashboard';
+import LoginProvider from './context/LoginProvider';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Error from './common/Error';
 
 function App(){
   return (
@@ -24,6 +25,13 @@ function App(){
                 <div>
                   <Dashboard/>   
                 </div>
+            </Route>
+            <Route path="/error"
+                   render={props => 
+                    <div>
+                      <Error {...props} />      
+                    </div> 
+                  }>
             </Route>
         </Switch>
       </Router>

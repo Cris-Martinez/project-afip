@@ -1,11 +1,12 @@
 import React, { createContext, useState } from 'react'
 import PropTypes from 'prop-types';
-import requestLogin from '../request/requestLogin'
+import axios from 'axios';
+
+axios.defaults.baseURL = `http://127.0.0.1:8000/api/`;
 
 export const LoginContext = createContext({
     email:'',
     password:'',
-    isLogged:{},
 });
 
 const LoginProvider = ({ children }) => {
@@ -13,6 +14,11 @@ const LoginProvider = ({ children }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword]= useState("");
     const [isLogged, setIsLogged] = useState({});
+    const [isErrorObject, setIsErrorObject] = useState({
+        isError: false,
+        message: "",
+    });
+
     const [user, setUser] = useState({
         email:"",
         password:"",
@@ -30,20 +36,32 @@ const LoginProvider = ({ children }) => {
         const newUser = Object.assign({},{...user, password});
         setUser(newUser);
     }
- 
-    const changeIsLogged = (isLogged) =>{   
-        setIsLogged(isLogged);
-        console.log(isLogged);
-    }
 
-    const loginAccess = () =>{
-        console.log(user);
-        requestLogin.post("authentication/authenticate",user);
-
+     const loginAccess = () =>{
+        //requestLogin.post("authentication/authenticate",user);
+        if(user.email !=="" && user.password !==""){
+            axios.post("authentication/authenticate", user)
+                        .then(res => {
+                            setIsLogged(res); 
+                            const newError = Object.assign({},{...isErrorObject, isError:false, message:""});
+                            setIsErrorObject(newError);
+                        })
+                        .catch(err => {
+                            if(err.response){
+                                setIsLogged(err.response); 
+                                const newError = Object.assign({},{...isErrorObject, isError:true, message:err.response.data.error});
+                                setIsErrorObject(newError);
+                            }else if(err.request){
+                                setIsLogged(err.request); 
+                            }else{
+                                setIsLogged(err); 
+                            }
+                        }); 
+        }
     }
 
     return(
-        <LoginContext.Provider value={{ email, password, changePassword, changeEmail, loginAccess, isLogged}}>
+        <LoginContext.Provider value={{ email, password, isLogged, isErrorObject, changePassword, changeEmail, loginAccess}}>
             {children}
         </LoginContext.Provider>
     );

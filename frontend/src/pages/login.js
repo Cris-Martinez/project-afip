@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types';
-import { Form, Input, Button, Checkbox, Card } from 'antd';
-import { LoginContext } from '../context/loginProvider';
-import { Link, Redirect } from 'react-router-dom'
+import { Form, Input, Button, Checkbox, Card, Alert } from 'antd';
+import { LoginContext } from '../context/LoginProvider';
+import { Redirect } from 'react-router-dom'
 
 const Login = (props) => {
     const layout = {labelCol: { span: 8 },};
     const tailLayout = { wrapperCol: { offset: 21, }, };
     const tailLayoutRemember = { wrapperCol: { offset: 6 }, };
-    const { email, changeEmail, password, changePassword, loginAccess, isLogged } = useContext(LoginContext);
+    const { email, changeEmail, password, changePassword, loginAccess, isLogged, isErrorObject } = useContext(LoginContext);
 
     const onFinish = values => {
         //console.log('Success:', values);
@@ -19,9 +19,34 @@ const Login = (props) => {
     };
     
     const renderRedirectToDashboard = () => {
-        if (!isLogged) {
-           return <Redirect to='/dashboard' />
-        }
+        switch (isLogged.status)
+        {
+            case 200:
+                return <Redirect to='/dashboard' />
+            case 404:
+                return <Redirect to={{
+                                    pathname: '/error',
+                                    state:{
+                                        status: "404",
+                                        title: "404"
+                                    }}}/>
+            case 500: 
+                return <Redirect to={{
+                                    pathname: '/error',
+                                    state:{
+                                        status: "500",
+                                        title: "500"
+                                    }}}/>
+            case isLogged !== {}:
+                return <Redirect to={{
+                                    pathname: '/error',
+                                    state:{
+                                        status: "error",
+                                        title: "Submission Failed"
+                                    }}}/>
+            default:
+                break;
+        }         
     }
 
     return (
@@ -62,24 +87,20 @@ const Login = (props) => {
                 <Input.Password value={password} onChange={e => changePassword(e.target.value)}/>
             </Form.Item>
         
+            {isErrorObject.isError ? 
+                <Form.Item {...tailLayoutRemember}>
+                    <Alert style={{marginBottom: 20}} message={isErrorObject.message} type="error" />
+                </Form.Item>:null}   
+
             <Form.Item {...tailLayoutRemember} name="remember" valuePropName="checked">
                 <Checkbox>Remember me</Checkbox>
             </Form.Item>
         
             <Form.Item {...tailLayout}>
-            {/* {email != "" && password != "" ?
-                <Link to={{
-                    pathname: '/dashboard',
-                    }}> */}
                     {renderRedirectToDashboard()}
                     <Button type="primary" htmlType="submit" onClick={()=>loginAccess()}>
                         Submit
                     </Button>
-                {/* </Link>
-            : <Button type="primary" htmlType="submit" onClick={()=>loginAccess()}>
-                                Submit
-             </Button>
-            } */}
             </Form.Item>
             </Form>
         </Card>
