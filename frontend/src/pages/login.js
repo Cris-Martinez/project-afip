@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types';
 import { Form, Input, Button, Checkbox, Card, Alert } from 'antd';
 import { LoginContext } from '../context/LoginProvider';
 import { Redirect } from 'react-router-dom'
@@ -87,12 +86,6 @@ const Login = () => {
             </Form>
         </Card>
       )
-}
-
-Login.propTypes = {
-    email: PropTypes.string,
-    password: PropTypes.string,
-    onChange: PropTypes.func,
 }
 
 export default Login

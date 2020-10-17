@@ -1,26 +1,17 @@
 import React from 'react'
-import { Layout, Button, Row, Col,Typography, Space } from 'antd';
-import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import logo from '../assets/images/logo.png'
+import { Layout, Row, Col,Typography, Space } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import Header from '../common/Header';
 import '../assets/css/dashboard.css';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const { Text } = Typography;
 
 const dashboard = () => {
     const name = "Bou Farah, Pierre Rashid"
     return (
         <Layout style={{background: 'white'}}>
-            <Header className="header">
-                <Row>
-                    <Col xs={{ span: 12 }} lg={{ span: 12 }}>
-                        <img src={logo} alt='logo' className='header-logo'/>                    
-                    </Col>
-                    <Col xs={{ span: 12 }} lg={{ span: 12 }} style={{textAlign: 'right'}}>
-                        <Button icon={<LogoutOutlined />}>Logout</Button>
-                    </Col>
-                </Row>
-            </Header>
+            <Header/>
             <Content className="content">
                 <Row>
                     <Col xs={{ span: 12 }} lg={{ span: 12 }} style={{textAlign: 'center'}}>
