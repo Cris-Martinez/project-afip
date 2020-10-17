@@ -3,21 +3,15 @@ import PropTypes from 'prop-types';
 import { Form, Input, Button, Checkbox, Card, Alert } from 'antd';
 import { LoginContext } from '../context/LoginProvider';
 import { Redirect } from 'react-router-dom'
+import { rulesForm } from '../constants/Rules';
+import '../assets/css/login.css'
 
-const Login = (props) => {
+const Login = () => {
     const layout = {labelCol: { span: 8 },};
     const tailLayout = { wrapperCol: { offset: 21, }, };
     const tailLayoutRemember = { wrapperCol: { offset: 6 }, };
     const { email, changeEmail, password, changePassword, loginAccess, isLogged, isErrorObject } = useContext(LoginContext);
-
-    const onFinish = values => {
-        //console.log('Success:', values);
-    };
-    
-    const onFinishFailed = errorInfo => {
-        //console.log('Failed:', errorInfo);
-    };
-    
+   
     const renderRedirectToDashboard = () => {
         switch (isLogged.status)
         {
@@ -57,23 +51,12 @@ const Login = (props) => {
                 initialValues={{
                     remember: true,
                 }}
-                onFinish={onFinish()}
-                onFinishFailed={onFinishFailed()}
                 style={{marginBottom: -25, marginLeft: '-30%'}}
             >
             <Form.Item
                 label="Username"
                 name="username"
-                rules={[
-                {
-                    required: true,
-                    message: 'Please input your username!',
-                },
-                {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                }
-                ]}
+                rules={[rulesForm.username,rulesForm.email]}
             >
                 <Input value={email} onChange={e => changeEmail(e.target.value)}/>
             </Form.Item>
@@ -81,12 +64,7 @@ const Login = (props) => {
             <Form.Item
                 label="Password"
                 name="password"
-                rules={[
-                {
-                    required: true,
-                    message: 'Please input your password!',
-                },
-                ]}
+                rules={[rulesForm.password]}
             >
                 <Input.Password value={password} onChange={e => changePassword(e.target.value)}/>
             </Form.Item>

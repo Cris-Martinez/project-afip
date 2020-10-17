@@ -1,40 +1,19 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import LoginProvider from './context/LoginProvider';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Error from './common/Error';
+import Layout from '../src/components/Layout'
+import appRoutes from "../src/routes/AppRoutes";
+import { Router } from "react-router";
+import { createBrowserHistory } from "history";
+
+const customHistory = createBrowserHistory();
 
 function App(){
   return (
-    <Router>
-        <Switch>
-            <Route path="/" exact>
-              <LoginProvider>
-                <div className="App-container-login">
-                  <Login/>   
-                </div>
-              </LoginProvider>
-            </Route>
-            <Route path="/dashboard">
-                <div>
-                  <Dashboard/>   
-                </div>
-            </Route>
-            <Route path="/error"
-                   render={props => 
-                    <div>
-                      <Error {...props} />      
-                    </div> 
-                  }>
-            </Route>
-        </Switch>
+    <div>
+      <Router history={customHistory}>
+        <Layout>{ appRoutes }</Layout>
       </Router>
+    </div>
   );
 }
 

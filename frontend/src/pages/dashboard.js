@@ -2,6 +2,7 @@ import React from 'react'
 import { Layout, Button, Row, Col,Typography, Space } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import logo from '../assets/images/logo.png'
+import '../assets/css/dashboard.css';
 
 const { Header, Content } = Layout;
 const { Text } = Typography;
