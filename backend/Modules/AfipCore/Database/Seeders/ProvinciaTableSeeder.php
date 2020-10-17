@@ -4,18 +4,23 @@ namespace Modules\AfipCore\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\AfipCore\Entities\Provincia as Provincia;
 
 class ProvinciaTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        Model::unguard();
+        Pais::create([
+            'id' => '1',
+            'nombre' => 'Tucuman', 
+            'pais_id' => '1'
+        ]);
 
-        // $this->call("OthersTableSeeder");
+        Pais::create([
+            'id' => '2',
+            'nombre' => 'Santiago del Estero',
+            'pais_id' => '1' 
+        ]);
+
     }
 }

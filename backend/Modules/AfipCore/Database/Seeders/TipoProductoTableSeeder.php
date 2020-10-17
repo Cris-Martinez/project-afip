@@ -4,6 +4,7 @@ namespace Modules\AfipCore\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\AfipCore\Entities\TipoProducto as TipoProducto;
 
 class TipoProductoTableSeeder extends Seeder
 {
@@ -14,8 +15,9 @@ class TipoProductoTableSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        // $this->call("OthersTableSeeder");
+        TipoProducto::create([
+            'id' => '1',
+            'nombre' => 'Tipo Producto'
+        ]);
     }
 }
