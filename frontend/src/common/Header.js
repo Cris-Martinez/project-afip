@@ -6,9 +6,8 @@ import '../assets/css/header.css';
 
 const { Header } = Layout;
 
-function NavHeader() {
+function SectionHeader() {
     return (
-        <div>
             <Header className="header">
                 <Row>
                     <Col xs={{ span: 12 }} lg={{ span: 12 }}>
@@ -19,8 +18,7 @@ function NavHeader() {
                     </Col>
                 </Row>
             </Header>
-        </div>
     )
 }
 
-export default NavHeader
+export default SectionHeader

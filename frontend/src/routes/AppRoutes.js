@@ -1,9 +1,11 @@
 import React from 'react';
-import { Route } from "react-router";
+import { Route, Redirect } from "react-router";
 import LoginProvider from '../context/LoginProvider';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
+import CreateInvoce from '../pages/CreateInvoce';
 import Error from '../common/Error';
+import PageError from '../common/PageError';
 
 const AppRoutes = [
                 <Route key="login" path="/" exact>
@@ -16,6 +18,11 @@ const AppRoutes = [
                 <Route key="dashboard" path="/dashboard">
                     <div>
                         <Dashboard/>   
+                    </div>
+                </Route>,
+                <Route key="createinvoce" path="/createinvoce">
+                    <div>
+                        <CreateInvoce/>   
                     </div>
                 </Route>,
                 <Route key="error" path="/error"
