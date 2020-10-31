@@ -10,13 +10,13 @@ class ProvinciaTableSeeder extends Seeder
 {
     public function run()
     {
-        Pais::create([
+        Provincia::create([
             'id' => '1',
             'nombre' => 'Tucuman', 
             'pais_id' => '1'
         ]);
 
-        Pais::create([
+        Provincia::create([
             'id' => '2',
             'nombre' => 'Santiago del Estero',
             'pais_id' => '1' 

@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../assets/images/logo.png'
-// import logoDPI from '../assets/images/UTN DPI-Blanco.png'
-import logoDPI from '../assets/images/Baufest.png'
+import logoDPI from '../assets/images/UTN DPI-Blanco.png'
+//import logoDPI from '../assets/images/Baufest.png'
 
 import { Layout, Divider, Row, Col, Tag } from 'antd'
 import {

@@ -12,9 +12,13 @@ class PaisTableSeeder extends Seeder
     public function run()
     {
 
+        // Pais::create([
+        //     'id' => '1',
+        //     'nombre' => 'Argentina' 
+        // ]);
+
         Pais::create([
-            'id' => '1',
-            'nombre' => 'Argentina' 
+            'nombre' => 'Colombia' 
         ]);
 
     }

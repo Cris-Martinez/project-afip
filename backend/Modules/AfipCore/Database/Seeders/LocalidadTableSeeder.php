@@ -16,30 +16,36 @@ class LocalidadTableSeeder extends Seeder
      */
     public function run()
     {
-        Localidad::create([
-            'id' => '1',
-            'nombre' => 'San Miguel de Tucuman',
-            'codigo_postal' => '4000',
-            'provincia_id' => '1'
-        ]);
+        // Localidad::create([
+        //     'id' => '1',
+        //     'nombre' => 'San Miguel de Tucuman',
+        //     'codigo_postal' => '4000',
+        //     'provincia_id' => '1'
+        // ]);
+
+        // Localidad::create([
+        //     'id' => '2',
+        //     'nombre' => 'Yerba Buena',
+        //     'codigo_postal' => '4107',
+        //     'provincia_id' => '1'
+        // ]);
+
+        // Localidad::create([
+        //     'id' => '3',
+        //     'nombre' => 'Trancas',
+        //     'codigo_postal' => '4172',
+        //     'provincia_id' => '1'
+        // ]);
+
+        // Localidad::create([
+        //     'id' => '4',
+        //     'nombre' => 'Termas del Rio Hondo',
+        //     'codigo_postal' => '4220',
+        //     'provincia_id' => '2'
+        // ]);
 
         Localidad::create([
-            'id' => '2',
-            'nombre' => 'Yerba Buena',
-            'codigo_postal' => '4107',
-            'provincia_id' => '1'
-        ]);
-
-        Localidad::create([
-            'id' => '3',
-            'nombre' => 'Yerba Buena',
-            'codigo_postal' => '4172',
-            'provincia_id' => '1'
-        ]);
-
-        Localidad::create([
-            'id' => '4',
-            'nombre' => 'Termas del Rio Hondo',
+            'nombre' => 'Lules',
             'codigo_postal' => '4220',
             'provincia_id' => '2'
         ]);

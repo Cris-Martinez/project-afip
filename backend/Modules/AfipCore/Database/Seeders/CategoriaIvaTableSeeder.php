@@ -13,7 +13,7 @@ class CategoriaIvaTableSeeder extends Seeder
         CategoriaIva::create([
             'id' => '1',
             'nombre' => 'IVA Responzable Inscripto' ,
-            'discrimina' => '20%'
+            'discrimina' => 'S'
         ]);
     }
 }
