@@ -8,6 +8,7 @@ import Header from '../common/Header';
 import Footer from '../common/Footer';
 import Complete from '../common/Complete';
 import info from '../common/Modal';
+import DescriptionProduct from '../components/DescriptionProduct';
 
 const { Content } = Layout;
 const { Search } = Input;
@@ -16,7 +17,8 @@ const onSearch = value => console.log(value);
 
 const CreateInvoce = () => {
     const [operacion, setOperacion] = useState("")
-    const { listProduct, getProduct } = useContext(CreateInvoceContext);   
+    const [valueInputProduct, setValueInputProduct] = useState("")
+    const { listProduct, productResult, listInTable, getProduct, searchProduct, closeInfoProduct, addProductInTable } = useContext(CreateInvoceContext);   
     
     useEffect(() => {
         getProduct();
@@ -24,7 +26,10 @@ const CreateInvoce = () => {
     
     const onChangeOperation = value => setOperacion(value);
 
-    const onSearchProduct = (inputValue, option) => option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+    const onSearchProduct = (inputValue, option) => {
+        setValueInputProduct(inputValue);
+        return option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+    }
 
     return (
         <Layout style={{background: 'white'}}>
@@ -172,11 +177,28 @@ const CreateInvoce = () => {
                             </Divider>
                             <Row style={{marginBottom:15}}>
                                     <Col xs={{span:12}} lg={{span:12}}> 
-                                        <Complete list={listProduct} onSearch={onSearchProduct} placeholder="Ingrese nombre del producto"/>
-                                        <Button type="primary" style={{borderRadius: 3, backgroundColor: '#13c2c2', marginLeft:'2%'}}>Consultar</Button>
+                                        <Complete 
+                                                list={listProduct} 
+                                                onSearch={onSearchProduct} 
+                                                placeholder="Ingrese nombre del producto" />
+                                    </Col>
+                                    <Col xs={{span:6}} lg={{span:6}}>
+                                        <Button 
+                                                type="primary" 
+                                                style={{borderRadius: 3, backgroundColor: '#13c2c2'}} 
+                                                onClick={() => searchProduct(valueInputProduct)}>Consultar</Button>
                                     </Col>                                 
                             </Row> 
-                            <Table columns={columns} className="table-product"/>
+                            {
+                                Object.keys(productResult).length !== 0 ? 
+                                    <DescriptionProduct 
+                                                        productResult={productResult} 
+                                                        closeInfoProduct={closeInfoProduct}
+                                                        addProductInTable={addProductInTable}
+                                                        /> 
+                                : null
+                            }
+                            <Table dataSource={listInTable} columns={columns} className="table-product"/>
                         </Col>
                     </Row>
                     <div style={{textAlign:'right'}}>

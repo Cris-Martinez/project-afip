@@ -9,12 +9,14 @@ export const CreateInvoceContext = createContext({
 const CreateInvoceProvider = ({ children }) => {
 
     const [listProduct, setListProduct] = useState([]);
+    const [productResult, setProductResult] = useState({});
+    const [listInTable, setListInTable] = useState([]);
 
     const setProduct = responseProducts =>{
         var newListProducts = [];
-        var objectProduct = {};
+
         responseProducts.forEach(element => newListProducts.push(
-                        objectProduct = {
+                        {
                             value: element.nombre,
                             id: element.id,
                             vencimiento: element.vencimiento,
@@ -33,12 +35,45 @@ const CreateInvoceProvider = ({ children }) => {
         setListProduct(newListProducts);
     }
 
+    const searchProduct = value =>{
+        var objectProduct = listProduct.find(item => {
+            const lc = item.value.toLowerCase();
+            const filter = value.toLowerCase();
+            return lc.includes(filter);
+        });
+
+        setProductResult(objectProduct);
+    }
+
+    const closeInfoProduct = () =>{
+        setProductResult({});
+    }
+
+    const addProductInTable = idProduct =>{
+        var newListInTable = [];
+
+        var objectProduct = listProduct.find(item => item.id === idProduct);
+
+        newListInTable.push(objectProduct);
+
+        setListInTable(newListInTable);
+    }
+
     const getProduct = () =>{
         requestCreateInvoce.get("afipcore/productos/", { setProduct }); 
     }
 
     return(
-        <CreateInvoceContext.Provider value={{ listProduct, getProduct }}>
+        <CreateInvoceContext.Provider 
+                                    value={{ 
+                                        listProduct, 
+                                        productResult, 
+                                        listInTable, 
+                                        getProduct, 
+                                        searchProduct, 
+                                        closeInfoProduct, 
+                                        addProductInTable, 
+                                        }}>
             {children}
         </CreateInvoceContext.Provider>
     );

@@ -1,8 +1,8 @@
 export const columns = [
   {
     title: 'Nombre',
-    dataIndex: 'nombre',
-    key: 'nombre',
+    dataIndex: 'value',
+    key: 'value',
   },
   {
     title: 'Vencimiento',
@@ -21,7 +21,7 @@ export const columns = [
   },
   {
     title: 'Unidad de Medida',
-    dataIndex: 'unidadmedida',
+    dataIndex: 'unidad_medida_id',
     key: 'unidadmedida',
   },
   {
