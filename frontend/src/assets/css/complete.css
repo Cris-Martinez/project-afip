@@ -1,0 +1,65 @@
+.autocomplete-wrapper {
+  width: 350px;
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-wrapper > div {
+  width: 100%;
+}
+
+.autocomplete-wrapper input {
+  border: 1px solid #cecece;
+  padding: 12px 15px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.autocomplete-wrapper input:focus {
+  border-color: #0F67FF;
+  box-shadow: none;
+  outline: none;
+}
+
+.autocomplete-wrapper .dropdown {
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum', "tnum",;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: 1050;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 4px 0;
+    overflow: hidden;
+    font-size: 14px;
+    font-variant: initial;
+    background-color: #fff;
+    border-radius: 2px;
+    outline: none;
+    -webkit-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+}
+
+.autocomplete-wrapper .item  {
+  display: block;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 15px;
+}
+
+.autocomplete-wrapper .item.selected-item {
+  background-color: #0069ff;
+  color: #FAFBFC;
+}
+
+.autocomplete-wrapper .item:hover {
+  background-color: #0069ff;
+  color: #FAFBFC;
+}

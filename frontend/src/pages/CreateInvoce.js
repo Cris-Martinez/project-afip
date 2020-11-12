@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
-import { Layout, Card, Alert, Col, Row, Divider, Form, Input, Button, Spin, Select, Table } from 'antd';
+import React, { useState, useContext, useEffect } from 'react'
+import { Layout, Card, Alert, Col, Row, Divider, Form, Input, Button, Select, Table  } from 'antd';
+import { CreateInvoceContext } from '../context/CreateInvoceProvider';
 import { EllipsisOutlined } from '@ant-design/icons';
+import { columns } from '../constants/Columns';
 import '../assets/css/createinvoce.css'
 import Header from '../common/Header';
 import Footer from '../common/Footer';
+import Complete from '../common/Complete';
 import info from '../common/Modal';
 
 const { Content } = Layout;
@@ -11,21 +14,21 @@ const { Search } = Input;
 
 const onSearch = value => console.log(value);
 
-
 const CreateInvoce = () => {
     const [operacion, setOperacion] = useState("")
+    const { listProduct, getProduct } = useContext(CreateInvoceContext);   
+    
+    useEffect(() => {
+        getProduct();
+    });
+    
     const onChangeOperation = value => setOperacion(value);
 
-    // const [visible, setVisible] = useState(true)
-    // setTimeout(() => {
-    //     setVisible(false);
-    // }, 5000);
+    const onSearchProduct = (inputValue, option) => option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+
     return (
         <Layout style={{background: 'white'}}>
             <Header/>
-            {/* {
-                visible ? <Spin size="large" style={{marginBottom: '13%', marginTop: '10%'}}/>
-                : */}
             <Content className="content">
                 <Card className="card-create-invoce">
                     <Alert message="Generación de Comprobantes" type="info" />
@@ -159,89 +162,21 @@ const CreateInvoce = () => {
                                 {operacion === "presupuesto" ?
                                     <Alert message="Presupuesto" type="error" /> : null
                                 }
-                                {/* <Row>
-                                    <Col xs={{span:8}} lg={{span:8}}>
-                                        <Form.Item
-                                            label="Numero"
-                                            name="numero"
-                                        >
-                                            <Input />
-                                        </Form.Item>
-                                    </Col>
-                                    <Col xs={{span:8}} lg={{span:8}}>
-                                        <Form.Item
-                                            label="Fecha"
-                                            name="fecha"
-                                            style={{marginLeft:10}}
-                                        >
-                                            <Input />
-                                        </Form.Item>
-                                    </Col>
-                                    <Col xs={{span:8}} lg={{span:8}}>
-                                        <Form.Item
-                                            label="Nombre"
-                                            name="nombre"
-                                            style={{marginLeft:10}}
-                                        >
-                                            <Input />
-                                        </Form.Item>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={{span:6}} lg={{span:6}}>
-                                        <Form.Item
-                                            label="Total"
-                                            name="total"
-                                        >
-                                            <Input />
-                                        </Form.Item>
-                                    </Col>
-                                    <Col xs={{span:6}} lg={{span:6}}>
-                                        <Form.Item
-                                            label="Neto"
-                                            name="neto"
-                                            style={{marginLeft:10}}
-                                        >
-                                            <Input />
-                                        </Form.Item>
-                                    </Col>
-                                    <Col xs={{span:6}} lg={{span:6}}>
-                                        <Form.Item
-                                            label="Iva"
-                                            name="iva"
-                                            style={{marginLeft:10}}
-                                        >
-                                            <Input />
-                                        </Form.Item>
-                                    </Col>
-                                    <Col xs={{span:6}} lg={{span:6}}>
-                                        <Form.Item
-                                            label="Exento"
-                                            name="exento"
-                                            style={{marginLeft:10}}
-                                        >
-                                            <Input />
-                                        </Form.Item>
-                                    </Col>
-                                </Row> */}
                             </Form>
-
-                            {/* <Row style={{marginBottom:15}}>
-                                <Col xs={{span:20}} lg={{span:20}}>
-                                    <Search placeholder="Ingrese nombre del cliente" onSearch={onSearch} />
-                                </Col>
-                                <Col xs={{span:4}} lg={{span:4}}>
-                                    <Button shape="circle" icon={<EllipsisOutlined />} onClick={()=>info(true)} style={{marginLeft:35}}/>
-                                </Col>
-                            </Row> */}
                         </Col>
                     </Row>
                     <Row>
                         <Col xs={{span:24}} lg={{span:24}}>
                             <Divider orientation="left" plain>
                                 Productos
-                            </Divider> 
-                            <Table />
+                            </Divider>
+                            <Row style={{marginBottom:15}}>
+                                    <Col xs={{span:12}} lg={{span:12}}> 
+                                        <Complete list={listProduct} onSearch={onSearchProduct} placeholder="Ingrese nombre del producto"/>
+                                        <Button type="primary" style={{borderRadius: 3, backgroundColor: '#13c2c2', marginLeft:'2%'}}>Consultar</Button>
+                                    </Col>                                 
+                            </Row> 
+                            <Table columns={columns} className="table-product"/>
                         </Col>
                     </Row>
                     <div style={{textAlign:'right'}}>
@@ -249,7 +184,7 @@ const CreateInvoce = () => {
                     </div>
                 </Card>
             </Content>
-            {/* } */}
+
             <Footer/>
         </Layout>
     )

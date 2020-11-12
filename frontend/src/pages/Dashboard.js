@@ -10,6 +10,7 @@ const { Content } = Layout;
 const { Text } = Typography;
 
 const Dashboard = () => {
+ 
     const name = "Bou Farah, Pierre Rashid"
     return (
         <Layout style={{background: 'white'}}>
@@ -23,8 +24,8 @@ const Dashboard = () => {
                     </Col>
                     <Col xs={{ span: 12 }} lg={{ span: 12 }} style={{textAlign: 'center'}}>
                         <Link to={{
-                                    pathname: '/createinvoce',
-                                    }}>  
+                                    pathname: '/createinvoce'
+                                }}>  
                             <Button type="primary" style={{borderRadius: 3, backgroundColor: '#13c2c2'}}>Generar Factura</Button>  
                        </Link>
                     </Col>

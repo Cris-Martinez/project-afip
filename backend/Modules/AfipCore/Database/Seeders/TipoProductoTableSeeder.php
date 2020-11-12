@@ -16,7 +16,6 @@ class TipoProductoTableSeeder extends Seeder
     public function run()
     {
         TipoProducto::create([
-            'id' => '1',
             'nombre' => 'Tipo Producto'
         ]);
     }

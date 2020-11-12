@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from "react-router";
 import LoginProvider from '../context/LoginProvider';
+import CreateInvoceProvider from '../context/CreateInvoceProvider';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import CreateInvoce from '../pages/CreateInvoce';
@@ -15,14 +16,18 @@ const AppRoutes = [
                     </LoginProvider>
                 </Route>,
                 <Route key="dashboard" path="/dashboard">
-                    <div>
-                        <Dashboard/>   
-                    </div>
+                    <CreateInvoceProvider>
+                        <div>
+                            <Dashboard/>   
+                        </div>
+                    </CreateInvoceProvider>
                 </Route>,
                 <Route key="createinvoce" path="/createinvoce">
-                    <div>
-                        <CreateInvoce/>   
-                    </div>
+                    <CreateInvoceProvider>
+                        <div>
+                            <CreateInvoce/>   
+                        </div>
+                    </CreateInvoceProvider>
                 </Route>,
                 <Route key="error" path="/error"
                     render={props => 

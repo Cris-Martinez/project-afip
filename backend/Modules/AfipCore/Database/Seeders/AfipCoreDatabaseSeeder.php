@@ -18,14 +18,14 @@ class AfipCoreDatabaseSeeder extends Seeder
 
          //$this->call(PaisTableSeeder::class);
         // $this->call(ProvinciaTableSeeder::class);
-         $this->call(LocalidadTableSeeder::class);
+         //$this->call(LocalidadTableSeeder::class);
         //$this->call(CategoriaIvaTableSeeder::class);
         // $this->call(ClienteTableSeeder::class);
         // $this->call(TipoComprobanteTableSeeder::class);
         // $this->call(UnidadMedidasTableSeeder::class);
         // $this->call(TipoIvaTableSeeder::class);
         // $this->call(TipoProductoTableSeeder::class);
-        // $this->call(ProductoTableSeeder::class);
+         //$this->call(ProductoTableSeeder::class);
 
         Model::reguard();
 
