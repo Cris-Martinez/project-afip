@@ -1,17 +1,17 @@
-import React from 'react';
-import './App.css';
-import Layout from '../src/components/Layout'
+import React from "react";
+import "./App.css";
+import Layout from "../src/components/Layout";
 import appRoutes from "../src/routes/AppRoutes";
 import { Router } from "react-router";
 import { createBrowserHistory } from "history";
 
 const customHistory = createBrowserHistory();
 
-function App(){
+function App() {
   return (
     <div>
       <Router history={customHistory}>
-        <Layout>{ appRoutes }</Layout>
+        <Layout>{appRoutes}</Layout>
       </Router>
     </div>
   );
