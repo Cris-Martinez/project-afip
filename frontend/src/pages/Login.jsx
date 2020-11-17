@@ -14,7 +14,6 @@ const Login = () => {
     password,
     changePassword,
     loginAccess,
-    isLogged,
     isErrorObject,
     renderRedirectToDashboard,
   } = useContext(LoginContext);

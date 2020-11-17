@@ -13,19 +13,16 @@ import {
   Table,
 } from "antd";
 import { CreateInvoceContext } from "../context/CreateInvoceProvider";
-import { EllipsisOutlined } from "@ant-design/icons";
 import { columns } from "../constants/Columns";
 import "../assets/css/createinvoce.css";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import Complete from "../common/Complete";
-import info from "../common/Modal";
 import DescriptionProduct from "../components/DescriptionProduct";
+import CustomerInInvoice from "../components/CustomerInInvoice";
 
 const { Content } = Layout;
-const { Search } = Input;
 
-const onSearch = (value) => console.log(value);
 
 const CreateInvoce = () => {
   const [operacion, setOperacion] = useState("");
@@ -59,80 +56,7 @@ const CreateInvoce = () => {
           <Alert message="Generación de Comprobantes" type="info" />
           <Row>
             <Col xs={{ span: 12 }} lg={{ span: 12 }}>
-              <Divider orientation="left" plain>
-                Cliente
-              </Divider>
-              <Form>
-                <Row style={{ marginBottom: 15 }}>
-                  <Col xs={{ span: 20 }} lg={{ span: 20 }}>
-                    <Search
-                      placeholder="Ingrese nombre del cliente"
-                      onSearch={onSearch}
-                    />
-                  </Col>
-                  <Col xs={{ span: 4 }} lg={{ span: 4 }}>
-                    <Button
-                      shape="circle"
-                      icon={<EllipsisOutlined />}
-                      onClick={() => info(true)}
-                      style={{ marginLeft: 35 }}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={{ span: 12 }} lg={{ span: 12 }}>
-                    <Form.Item label="Nombre" name="nombre">
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                  <Col xs={{ span: 12 }} lg={{ span: 12 }}>
-                    <Form.Item
-                      label="CUIT"
-                      name="cuit"
-                      style={{ marginLeft: 10 }}
-                    >
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={{ span: 12 }} lg={{ span: 12 }}>
-                    <Form.Item label="Domicilio" name="domicilio">
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                  <Col xs={{ span: 10 }} lg={{ span: 10 }}>
-                    <Form.Item
-                      label="Localidad"
-                      name="localidad"
-                      style={{ marginLeft: 10 }}
-                    >
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                  <Col xs={{ span: 2 }} lg={{ span: 2 }}>
-                    <Form.Item name="codigopostal">
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={{ span: 12 }} lg={{ span: 12 }}>
-                    <Form.Item label="Provincia" name="provincia">
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                  <Col xs={{ span: 12 }} lg={{ span: 12 }}>
-                    <Form.Item
-                      label="Telefono"
-                      name="telefono"
-                      style={{ marginLeft: 10 }}
-                    >
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                </Row>
-              </Form>
+              <CustomerInInvoice/>
             </Col>
             <Col xs={{ span: 1 }} lg={{ span: 1 }}></Col>
             <Col xs={{ span: 11 }} lg={{ span: 11 }}>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Layout from "../src/components/Layout";
+import Layout from "../src/components/Layout.jsx";
 import appRoutes from "../src/routes/AppRoutes";
 import { Router } from "react-router";
 import { createBrowserHistory } from "history";

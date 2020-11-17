@@ -1,11 +1,11 @@
 import React from "react";
 import { Route } from "react-router";
-import LoginProvider from "../context/LoginProvider";
-import CreateInvoceProvider from "../context/CreateInvoceProvider";
-import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
-import CreateInvoce from "../pages/CreateInvoce";
-import Error from "../common/Error";
+import LoginProvider from "../context/LoginProvider.jsx";
+import CreateInvoceProvider from "../context/CreateInvoceProvider.jsx";
+import Login from "../pages/Login.jsx";
+import Dashboard from "../pages/Dashboard.jsx";
+import CreateInvoce from "../pages/CreateInvoce.jsx";
+import Error from "../common/Error.jsx";
 
 const AppRoutes = [
   <Route key="login" path="/" exact>
@@ -16,11 +16,9 @@ const AppRoutes = [
     </LoginProvider>
   </Route>,
   <Route key="dashboard" path="/dashboard">
-    <CreateInvoceProvider>
       <div>
         <Dashboard />
       </div>
-    </CreateInvoceProvider>
   </Route>,
   <Route key="createinvoce" path="/createinvoce">
     <CreateInvoceProvider>
