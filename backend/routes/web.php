@@ -18,7 +18,6 @@ Route::get('/', function () {
 Route::get('api/application/generic-search', 'AppController@genericSearch');
 
 Route::prefix('api/reportes')->group(function () {
-    Route::get('check', 'ReportController@check');
-    Route::post('generate', 'ReportController@generate');
+Route::get('check', 'ReportController@check');
+Route::post('generate', 'ReportController@generate');
 });
-
