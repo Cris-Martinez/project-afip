@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVenta" language="groovy" pageWidth="1190" pageHeight="842" orientation="Landscape" columnWidth="1150" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc0a1500-06d7-44d8-bd66-59f5d5b0c1fb">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AFIP"/>
@@ -201,11 +201,11 @@ where id = $P{venta_id}]]>
 				<text><![CDATA[GRUPO ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="77" y="78" width="245" height="13" uuid="06866314-614d-4b80-a75b-b2d7070ec30e"/>
+				<reportElement x="84" y="77" width="235" height="13" uuid="06866314-614d-4b80-a75b-b2d7070ec30e"/>
 				<textFieldExpression><![CDATA[$F{domicilio}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="12" y="77" width="46" height="13" uuid="2f0011a5-fc54-4d76-9b9f-2e678a9444e6"/>
+				<reportElement x="12" y="77" width="55" height="13" uuid="2f0011a5-fc54-4d76-9b9f-2e678a9444e6"/>
 				<text><![CDATA[Domicilio:]]></text>
 			</staticText>
 			<staticText>
@@ -251,8 +251,8 @@ where id = $P{venta_id}]]>
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="37" y="1" width="100" height="20" uuid="7fd978ca-5eba-43bc-8c1c-c9ffe54e5fb1"/>
-				<text><![CDATA[.Producto]]></text>
+				<reportElement x="18" y="1" width="100" height="20" uuid="7fd978ca-5eba-43bc-8c1c-c9ffe54e5fb1"/>
+				<text><![CDATA[Producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="337" y="1" width="53" height="20" uuid="dbe91231-ff14-489f-9f1d-80b2b0d68556"/>
