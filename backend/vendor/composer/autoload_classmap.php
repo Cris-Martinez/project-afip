@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AfipCore' => $baseDir . '/database/seeds/AfipCore.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AppController' => $baseDir . '/app/Http/Controllers/AppController.php',
@@ -2194,6 +2193,7 @@ return array(
     'Modules\\Authentication\\Observers\\UsuarioObserver' => $baseDir . '/Modules/Authentication/Observers/UsuarioObserver.php',
     'Modules\\Authentication\\Providers\\AuthenticationServiceProvider' => $baseDir . '/Modules/Authentication/Providers/AuthenticationServiceProvider.php',
     'Modules\\Authentication\\Providers\\RouteServiceProvider' => $baseDir . '/Modules/Authentication/Providers/RouteServiceProvider.php',
+    'Modules\\InventarioCore\\Http\\Controllers\\ReportController' => $baseDir . '/Modules/AfipCore/Http/Controllers/ReportController.php',
     'Modules\\Modulo\\Entities\\Entidad' => $baseDir . '/Modules/Generator/model/Entidad.php',
     'Modules\\Modulo\\Http\\Controllers\\EntidadController' => $baseDir . '/Modules/Generator/controller/EntidadController.php',
     'Modules\\Modulo\\Http\\Controllers\\ModuloController' => $baseDir . '/Modules/Generator/controller/ModuloController.php',

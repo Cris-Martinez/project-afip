@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Venta" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ad48560-0d6f-4416-a609-33aa636c060b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="report" class="java.lang.String"/>
+	<parameter name="venta_id" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select * from vista_ventas
+where id = $P{venta_id}]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="numero" class="java.lang.Integer"/>
+	<field name="ttotal" class="java.lang.Double"/>
+	<field name="tneto" class="java.lang.Double"/>
+	<field name="tiva" class="java.lang.Double"/>
+	<field name="texento" class="java.lang.Double"/>
+	<field name="comprobante" class="java.lang.String"/>
+	<field name="signo" class="java.lang.Integer"/>
+	<field name="cliente" class="java.lang.String"/>
+	<field name="cuit" class="java.lang.String"/>
+	<field name="domicilio" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="categoriaiva" class="java.lang.Boolean"/>
+	<field name="producto" class="java.lang.String"/>
+	<field name="bulto" class="java.lang.Integer"/>
+	<field name="pieza" class="java.lang.Integer"/>
+	<field name="cantidad" class="java.lang.Double"/>
+	<field name="precio" class="java.lang.Double"/>
+	<field name="exento" class="java.lang.Double"/>
+	<field name="neto" class="java.lang.Double"/>
+	<field name="iva" class="java.lang.Double"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="porcentaje_iva" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="185" height="20" uuid="eb691e41-3ce4-4edc-b068-0e0adbe6bf4b"/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="185" height="20" uuid="325e17b5-da9f-4ba3-9e25-9435f0117d46"/>
+				<text><![CDATA[numero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="185" height="20" uuid="a04830b1-61f3-4c54-bb47-a37d3314bec5"/>
+				<text><![CDATA[ttotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="20" uuid="309dbfa3-0f35-4583-a377-2be80cc7b8f6"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="20" uuid="ec060b34-88f3-4d62-a807-c66685e56205"/>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="20" uuid="fb17be2a-2948-4092-be2a-2f396c77a9e2"/>
+				<textFieldExpression><![CDATA[$F{ttotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
